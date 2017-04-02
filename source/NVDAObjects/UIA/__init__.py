@@ -117,7 +117,7 @@ class UIATextInfo(textInfos.TextInfo):
 	def _getFormatFieldAtRange(self,textRange,formatConfig,ignoreMixedValues=False):
 		"""
 		Fetches formatting for the given UI Automation Text range.
-		@ param textRange: the text range whos formatting should be fetched.
+		@ param textRange: the text range whose formatting should be fetched.
 		@type textRange: L{UIAutomation.IUIAutomationTextRange}
 		@param formatConfig: the types of formatting requested.
 		@ type formatConfig: a dictionary of NVDA document formatting configuration keys with values set to true for those types that should be fetched.
@@ -423,7 +423,7 @@ class UIATextInfo(textInfos.TextInfo):
 		Yields start and end control fields, and text, for the given UI Automation text range.
 		@param rootElement: the highest ancestor that encloses the given text range. This function will not walk higher than this point.
 		@type rootElement: L{UIAHandler.IUIAutomation}
-		@param textRange: the UI Automation text range whos content should be fetched.
+		@param textRange: the UI Automation text range whose content should be fetched.
 		@type textRange: L{UIAHandler.IUIAutomation}
 		@param formatConfig: the types of formatting requested.
 		@ type formatConfig: a dictionary of NVDA document formatting configuration keys with values set to true for those types that should be fetched.
@@ -654,7 +654,7 @@ class UIA(Window):
 		Fetches the value for a UI Automation property from an element cache available in this core cycle. If not cached then a new value will be fetched.
 		"""
 		elementCache=self._coreCycleUIAPropertyCacheElementCache
-		# If we have a UIAElement whos own cache contains the property, fetch the value from there
+		# If we have a UIAElement whose own cache contains the property, fetch the value from there
 		cacheElement=elementCache.get(ID,None)
 		if cacheElement:
 			value=cacheElement.getCachedPropertyValueEx(ID,ignoreDefault)

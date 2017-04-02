@@ -211,7 +211,7 @@ class TextInfo(baseObject.AutoPropertyObject):
 	"""Provides information about a range of text in an object and facilitates access to all text in the widget.
 	A TextInfo represents a specific range of text, providing access to the text itself, as well as information about the text such as its formatting and any associated controls.
 	This range can be moved within the object's text relative to the initial position.
-	
+
 	At a minimum, subclasses must:
 		* Extend the constructor so that it can set up the range at the specified position.
 		* Implement the L{move}, L{expand}, L{compareEndPoints}, L{setEndPoint} and L{copy} methods.
@@ -222,7 +222,7 @@ class TextInfo(baseObject.AutoPropertyObject):
 	L{Points} must be supported as a position.
 	To support routing to a screen point from a given position, L{pointAtStart} must be implemented.
 	In order to support text formatting or control information, L{getTextWithFields} should be overridden.
-	
+
 	@ivar bookmark: A unique identifier that can be used to make another textInfo object at this position.
 	@type bookmark: L{Bookmark}
 	"""
@@ -256,7 +256,7 @@ class TextInfo(baseObject.AutoPropertyObject):
 		raise NotImplementedError
 
 	def getTextWithFields(self,formatConfig=None):
-		"""Retreaves the text in this range, as well as any control/format fields associated therewith.
+		"""Retrieves the text in this range, as well as any control/format fields associated therewith.
 		Subclasses may override this. The base implementation just returns the text.
 		@param formatConfig: Document formatting configuration, useful if you wish to force a particular configuration for a particular task.
 		@type formatConfig: dict
@@ -271,7 +271,7 @@ class TextInfo(baseObject.AutoPropertyObject):
 
 	def unitIndex(self,unit):
 		"""
-@param unit: a unit constant for which you want to retreave an index
+@param unit: a unit constant for which you want to retrieve an index
 @type: string
 @returns: The 1-based index of this unit, out of all the units of this type in the object
 @rtype: int
@@ -383,13 +383,13 @@ class TextInfo(baseObject.AutoPropertyObject):
 		raise NotImplementedError
 
 	def _get_NVDAObjectAtStart(self):
-		"""retreaves the NVDAObject related to the start of the range. Usually it is just the owner NVDAObject, but in the case of virtualBuffers it may be a descendant object.
+		"""retrieves the NVDAObject related to the start of the range. Usually it is just the owner NVDAObject, but in the case of virtualBuffers it may be a descendant object.
 		@returns: the NVDAObject at the start
 		"""
 		return self.obj
 
 	def _get_focusableNVDAObjectAtStart(self):
-		"""retreaves the deepest focusable NVDAObject related to the start of the range. Usually it is just the owner NVDAObject, but in the case of virtualBuffers it may be a descendant object.
+		"""retrieves the deepest focusable NVDAObject related to the start of the range. Usually it is just the owner NVDAObject, but in the case of virtualBuffers it may be a descendant object.
 		@returns: the NVDAObject at the start
 		"""
 		return self.obj

@@ -39,7 +39,7 @@ from cursorManager import CursorManager, ReviewCursorManager
 from tableUtils import HeaderCellInfo, HeaderCellTracker
 from . import Window
 from ..behaviors import EditableTextWithoutAutoSelectDetection
- 
+
 #Word constants
 
 #wdLineSpacing rules
@@ -386,7 +386,7 @@ class WinWordCollectionQuicknavIterator(object):
 	Allows iterating over an MS Word collection (e.g. HyperLinks) emitting L{QuickNavItem} objects.
 	"""
 
-	quickNavItemClass=WordDocumentCollectionQuickNavItem #: the QuickNavItem class that should be instanciated and emitted. 
+	quickNavItemClass=WordDocumentCollectionQuickNavItem #: the QuickNavItem class that should be instantiated and emitted. 
 
 	def __init__(self,itemType,document,direction,rangeObj,includeCurrent):
 		"""
@@ -410,9 +410,9 @@ class WinWordCollectionQuicknavIterator(object):
 
 	def filter(self,item):
 		"""
-		Only allows certain items fom a collection to be emitted. E.g. a table who's borders are enabled.
+		Only allows certain items from a collection to be emitted. E.g. a table who's borders are enabled.
 		@param item: an item from a Microsoft Word collection (e.g. HyperLink object).
-		@return True if this item should be allowd, false otherwise.
+		@return True if this item should be allowed, false otherwise.
 		@rtype: bool
 		"""
 		return True
@@ -491,7 +491,7 @@ class WordDocumentTextInfo(textInfos.TextInfo):
 
 	# #4852: temporary fix.
 	# force mouse reading chunk to sentense to make it what it used to be in 2014.4.
-	# We need to however fix line so it does not accidentially scroll.
+	# We need to however fix line so it does not accidentally scroll.
 	def _get_unit_mouseChunk(self):
 		unit=super(WordDocumentTextInfo,self).unit_mouseChunk
 		if unit==textInfos.UNIT_LINE:
@@ -631,7 +631,7 @@ class WordDocumentTextInfo(textInfos.TextInfo):
 				elif isinstance(field,textInfos.FormatField):
 					item.field=self._normalizeFormatField(field,extraDetail=extraDetail)
 			elif index>0 and isinstance(item,basestring) and item.isspace():
-				 #2047: don't expose language for whitespace as its incorrect for east-asian languages 
+				# #2047: don't expose language for whitespace as its incorrect for east-asian languages 
 				lastItem=commandList[index-1]
 				if isinstance(lastItem,textInfos.FieldCommand) and isinstance(lastItem.field,textInfos.FormatField):
 					try:
@@ -944,7 +944,7 @@ class WordDocumentTreeInterceptor(browseMode.BrowseModeDocumentTreeInterceptor):
 
 	def _activateLongDesc(self,controlField):
 		longDesc=controlField.get('longdescription')
-		# Translators: the title of the message dialog desplaying an MS Word table description.
+		# Translators: the title of the message dialog displaying an MS Word table description.
 		ui.browseableMessage(longDesc,_("Table description"))
 
 	def _get_isAlive(self):
@@ -989,9 +989,9 @@ class WordDocumentTreeInterceptor(browseMode.BrowseModeDocumentTreeInterceptor):
 			revisions=RevisionWinWordCollectionQuicknavIterator(nodeType,self,direction,rangeObj,includeCurrent).iterate()
 			return browseMode.mergeQuickNavItemIterators([comments,revisions],direction)
 		elif nodeType in ("table","container"):
-			 return TableWinWordCollectionQuicknavIterator(nodeType,self,direction,rangeObj,includeCurrent).iterate()
+			return TableWinWordCollectionQuicknavIterator(nodeType,self,direction,rangeObj,includeCurrent).iterate()
 		elif nodeType=="graphic":
-			 return GraphicWinWordCollectionQuicknavIterator(nodeType,self,direction,rangeObj,includeCurrent).iterate()
+			return GraphicWinWordCollectionQuicknavIterator(nodeType,self,direction,rangeObj,includeCurrent).iterate()
 		elif nodeType.startswith('heading'):
 			return self._iterHeadings(nodeType,direction,rangeObj,includeCurrent)
 		else:
@@ -1375,13 +1375,13 @@ class WordDocument(EditableTextWithoutAutoSelectDetection, Window):
 	def script_toggleAlignment(self,gesture):
 		val=self._WaitForValueChangeForAction(lambda: gesture.send(),lambda: self.WinwordSelectionObject.paragraphFormat.alignment)
 		alignmentMessages={
-			# Translators: a an alignment in Microsoft Word 
+			# Translators: an alignment in Microsoft Word 
 			wdAlignParagraphLeft:_("Left aligned"),
-			# Translators: a an alignment in Microsoft Word 
+			# Translators: an alignment in Microsoft Word 
 			wdAlignParagraphCenter:_("centered"),
-			# Translators: a an alignment in Microsoft Word 
+			# Translators: an alignment in Microsoft Word 
 			wdAlignParagraphRight:_("Right aligned"),
-			# Translators: a an alignment in Microsoft Word 
+			# Translators: an alignment in Microsoft Word 
 			wdAlignParagraphJustify:_("Justified"),
 		}
 		msg=alignmentMessages.get(val)
@@ -1543,7 +1543,7 @@ class WordDocument(EditableTextWithoutAutoSelectDetection, Window):
 		commandList=info.getTextWithFields(formatConfig)
 		if len(commandList)<3 or commandList[1].field.get('role',None)!=controlTypes.ROLE_TABLE or commandList[2].field.get('role',None)!=controlTypes.ROLE_TABLECELL:
 			# Translators: The message reported when a user attempts to use a table movement command
-			# when the cursor is not withnin a table.
+			# when the cursor is not within a table.
 			ui.message(_("Not in table"))
 			return False
 		rowCount=commandList[1].field.get('table-rowcount',1)
@@ -1599,7 +1599,7 @@ class WordDocument(EditableTextWithoutAutoSelectDetection, Window):
 
 	def script_nextParagraph(self,gesture):
 		info=self.makeTextInfo(textInfos.POSITION_CARET)
-		# #4375: can't use self.move here as it may check document.chracters.count which can take for ever on large documents.
+		# #4375: can't use self.move here as it may check document.characters.count which can take for ever on large documents.
 		info._rangeObj.move(wdParagraph,1)
 		info.updateCaret()
 		self._caretScriptPostMovedHelper(textInfos.UNIT_PARAGRAPH,gesture,None)

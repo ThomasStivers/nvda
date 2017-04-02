@@ -40,7 +40,6 @@ _isPumpPending = False
 def doStartupDialogs():
 	import config
 	import gui
-	# Translators: The title of the dialog to tell users that there are erros in the configuration file.
 	if config.conf.baseConfigError:
 		import wx
 		gui.messageBox(

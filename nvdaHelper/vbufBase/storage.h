@@ -334,7 +334,7 @@ class VBufStorage_controlFieldNode_t : public VBufStorage_fieldNode_t {
 	public:
 
 /**
- * retreaves the node's doc handle and ID.
+ * retrieves the node's doc handle and ID.
   * @param docHandle a memory location in which the doc handle will be placed.
  * @param ID the memory location in which the ID will be placed.
  */
@@ -546,7 +546,7 @@ class VBufStorage_buffer_t {
 
 /**
  * Retreaves the identifier for the given controlFieldNode.
- * @param node the controlFieldNode who's identifier should be retreaved.
+ * @param node the controlFieldNode who's identifier should be retrieved.
  * @param docHandle a memory address where the docHandle should be placed.
  * @param ID a memory address where the ID should be placed.
  * @return true if successfull
@@ -582,7 +582,7 @@ class VBufStorage_buffer_t {
 	virtual bool setSelectionOffsets(int startOffset, int endOffset);
 
 /**
- * retreaves the length of all the text in the buffer.
+ * retrieves the length of all the text in the buffer.
  * @return the length in characters of the text
  */
 	virtual int getTextLength() const;

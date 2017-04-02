@@ -101,7 +101,7 @@ def getCharacterDescription(locale,character):
 	Finds a description or examples for the given character, which makes sence in the given locale.
 	@param locale: the locale (language[_COUNTRY]) the description should be for.
 	@type locale: string
-	@param character: the character  who's description should be retreaved.
+	@param character: the character  who's description should be retrieved.
 	@type character: string
 	@return:  the found description for the given character
 	@rtype: list of strings
@@ -532,7 +532,7 @@ class SpeechSymbolProcessor(object):
 	def updateSymbol(self, newSymbol):
 		"""Update information for a symbol if it has changed.
 		If there is a change, the changed information will be added to the user's symbol data.
-		These changes do not take effect until the symbol processor is reinitialised.
+		These changes do not take effect until the symbol processor is re-initialised.
 		@param newSymbol: The symbol to update.
 		@type newSymbol: L{SpeechSymbol}
 		@return: Whether there was a change.
@@ -577,7 +577,7 @@ class SpeechSymbolProcessor(object):
 	def deleteSymbol(self, symbol):
 		"""Delete a user defined symbol.
 		If the symbol does not exist, this method simply does nothing.
-		These changes do not take effect until the symbol processor is reinitialised.
+		These changes do not take effect until the symbol processor is re-initialised.
 		@param symbol: The symbol to delete.
 		@type symbol: L{SpeechSymbol}
 		"""

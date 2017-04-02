@@ -133,7 +133,7 @@ def findEndOfWord(text,offset,lineLength=None):
 class OffsetsTextInfo(textInfos.TextInfo):
 	"""An abstract TextInfo for text implementations which represent ranges using numeric offsets relative to the start of the text.
 	In such implementations, the start of the text is represented by 0 and the end is the length of the entire text.
-	
+
 	All subclasses must implement L{_getStoryLength}.
 	Aside from this, there are two possible implementations:
 		* If the underlying text implementation does not support retrieval of line offsets, L{_getStoryText} should be implemented.
@@ -141,7 +141,7 @@ class OffsetsTextInfo(textInfos.TextInfo):
 		This is very inefficient and should be avoided if possible.
 		* Otherwise, subclasses must implement at least L{_getTextRange} and L{_getLineOffsets}.
 		Retrieval of other offsets (e.g. L{_getWordOffsets}) should also be implemented if possible for greatest accuracy and efficiency.
-	
+
 	If a caret and/or selection should be supported, L{_getCaretOffset} and/or L{_getSelectionOffsets} should be implemented, respectively.
 	To support conversion from/to screen points (e.g. for mouse tracking), L{_getOffsetFromPoint}/L{_getPointFromOffset} should be implemented.
 	"""

@@ -54,7 +54,7 @@ currentModifiers = set()
 #: Note that this may be removed in future, so reliance on it should generally be avoided.
 #: @type: int
 keyCounter = 0
-#: The current sticky NVDa modifier key.
+#: The current sticky NVDA modifier key.
 stickyNVDAModifier = None
 #: Whether the sticky NVDA modifier is locked.
 stickyNVDAModifierLocked = False
@@ -335,7 +335,7 @@ class KeyboardInputGesture(inputCore.InputGesture):
 		super(KeyboardInputGesture, self).__init__()
 
 	def _get_bypassInputHelp(self):
-		# #4226: Numlock must always be handled normally otherwise the Keyboard controller and Windows can get out of synk wih each other in regard to this key state.
+		# #4226: Numlock must always be handled normally otherwise the Keyboard controller and Windows can get out of synk with each other in regard to this key state.
 		return self.vkCode==winUser.VK_NUMLOCK
 
 	def _get_isNVDAModifierKey(self):

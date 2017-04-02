@@ -335,9 +335,9 @@ class ExcelQuicknavIterator(object):
 
 	def filter(self,item):
 		"""
-		Only allows certain items fom a collection to be emitted. E.g. a chart .
+		Only allows certain items from a collection to be emitted. E.g. a chart .
 		@param item: an item from a Microsoft excel collection (e.g. chart object).
-		@return True if this item should be allowd, false otherwise.
+		@return True if this item should be allowed, false otherwise.
 		@rtype: bool
 		"""
 		return True
@@ -358,12 +358,12 @@ class ExcelQuicknavIterator(object):
 			yield item
 
 class ChartExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
-	quickNavItemClass=ExcelChartQuickNavItem#: the QuickNavItem class that should be instanciated and emitted. 
+	quickNavItemClass=ExcelChartQuickNavItem#: the QuickNavItem class that should be instantiated and emitted. 
 	def collectionFromWorksheet( self , worksheetObject ):
 		return worksheetObject.ChartObjects() 
 
 class CommentExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
-	quickNavItemClass=ExcelCommentQuickNavItem#: the QuickNavItem class that should be instanciated and emitted. 
+	quickNavItemClass=ExcelCommentQuickNavItem#: the QuickNavItem class that should be instantiated and emitted. 
 	def collectionFromWorksheet( self , worksheetObject ):
 		try:
 			return  worksheetObject.cells.SpecialCells( xlCellTypeComments )
@@ -374,7 +374,7 @@ class CommentExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
 		return item is not None and item.comment is not None
 
 class FormulaExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
-	quickNavItemClass=ExcelFormulaQuickNavItem#: the QuickNavItem class that should be instanciated and emitted. 
+	quickNavItemClass=ExcelFormulaQuickNavItem#: the QuickNavItem class that should be instantiated and emitted. 
 	def collectionFromWorksheet( self , worksheetObject ):
 		try:
 			return  worksheetObject.cells.SpecialCells( xlCellTypeFormulas )
@@ -609,7 +609,7 @@ class ExcelBase(Window):
 			return
 		obj=Window(windowHandle=w,chooseBestAPI=False)
 		if not obj:
-			log.debugWarning("Could not instnaciate NVDAObject for ancestor window")
+			log.debugWarning("Could not instantiate NVDAObject for ancestor window")
 			return
 		threadID=obj.windowThreadID
 		while not eventHandler.isPendingEvents("gainFocus"):
@@ -681,7 +681,7 @@ class ExcelWorksheet(ExcelBase):
 		# If a sheet name contains spaces then it is surrounded by single quotes (')
 		# Examples:
 		# Sheet1!
-		# ''Sheet2 (4)'!
+		# 'Sheet2 (4)'!
 		# 'profit and loss'!
 		u'^((?P<sheet>(\'[^\']+\'|[^!]+))!)?'
 		# followed by a unique name (not containing spaces). Example:
@@ -1229,7 +1229,7 @@ class ExcelCell(ExcelBase):
 		#Fetching Font Size and Weight information
 		iFontSize = self.excelCellObject.Font.Size
 		iFontSize = 11 if iFontSize is None else int(iFontSize)
-		#Font  Weight for Bold FOnt is 700 and for normal font it's 400
+		#Font weight for bold font is 700 and for normal font it's 400
 		iFontWeight = 700 if self.excelCellObject.Font.Bold else 400
 		#Fetching Font Name and style information
 		sFontName = self.excelCellObject.Font.Name

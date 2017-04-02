@@ -32,9 +32,9 @@ IID_IHTMLElement=comtypes.GUID('{3050F1FF-98B5-11CF-BB82-00AA00BDCE0B}')
 
 class UIAMSHTMLTextInfo(UIATextInfo):
 
-	# #4174: MSHTML's UIAutomation implementation does not handle the insertion point at the end of the control correcly.
-	# Therefore get around it by detecting when the TextInfo is instanciated on it, and ensure that expand and move do the expected thing.
-	
+	# #4174: MSHTML's UIAutomation implementation does not handle the insertion point at the end of the control correctly.
+	# Therefore get around it by detecting when the TextInfo is instantiated on it, and ensure that expand and move do the expected thing.
+
 	_atEndOfStory=False
 
 	def __init__(self,obj,position,_rangeObj=None):

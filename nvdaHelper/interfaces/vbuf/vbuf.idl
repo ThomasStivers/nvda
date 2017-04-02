@@ -29,7 +29,7 @@ cpp_quote("*/")
 import "wtypes.idl";
 
 /**
- * Renders content in to a virtual buffer
+ * Renders content into a virtual buffer
  */
 [
 uuid(28efdf2b-039b-48ec-b4d5-230eee90d186),
@@ -110,9 +110,9 @@ interface VBuf {
 	int getControlFieldNodeWithIdentifier([in] VBufRemote_bufferHandle_t buffer, [in] int docHandle, [in] int ID, [out] VBufRemote_nodeHandle_t* foundNode);
 
 /**
- * Retreaves the identifier for the given controlFieldNode.
+ * retrieves the identifier for the given controlFieldNode.
  * @param buffer the virtual buffer to use
- * @param node the controlFieldNode who's identifier should be retreaved.
+ * @param node the controlFieldNode who's identifier should be retrieved.
  * @param docHandle a memory address where the docHandle should be placed.
  * @param ID a memory address where the ID should be placed.
  * @return non-0 if successfull.
@@ -134,7 +134,7 @@ interface VBuf {
 	int findNodeByAttributes([in] VBufRemote_bufferHandle_t buffer, [in] int offset, [in] int direction, [in,string] const wchar_t* attribs, [in,string] const wchar_t* regexp, [out] int *startOffset, [out] int *endOffset, [out] VBufRemote_nodeHandle_t* foundNode);
 
 /**
- * Retreaves the current selection offsets for the buffer
+ * retrieves the current selection offsets for the buffer
  * @param buffer the virtual buffer to use
  * @param startOffset memory where the start offset of the selection will be placed
  * @param endOffset memory where the end offset of the selection will be placed
@@ -152,14 +152,14 @@ interface VBuf {
 	int setSelectionOffsets([in] VBufRemote_bufferHandle_t buffer, [in] int startOffset, [in] int endOffset);
  
 /**
- * retreaves the length of all the text in the buffer.
+ * retrieves the length of all the text in the buffer.
  * @param buffer the virtual buffer to use
  * @return the length in characters of the text
  */
 	int getTextLength([in] VBufRemote_bufferHandle_t buffer) const;
 
 /**
- * Retreaves the text in the buffer between given offsets, optionally containing markup.
+ * retrieves the text in the buffer between given offsets, optionally containing markup.
  * @param buffer the virtual buffer to use
  * @param startOffset the offset to start from
  * @param endOffset the offset to end at. Use -1 to mean end of buffer.

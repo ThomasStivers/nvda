@@ -236,7 +236,7 @@ IHTMLElement* LocateHTMLElementInDocument(IHTMLDocument3* pHTMLDocument3, const 
 		vResIndex.lVal=0;
 		hRes=pHTMLElementCollection->item(vID,vResIndex,&pDispatch);
 		if(hRes!=S_OK||!pDispatch) {
-			LOG_DEBUG(L"Could not retreave item "<<index<<L" from collection");
+			LOG_DEBUG(L"Could not retrieve item "<<index<<L" from collection");
 			continue;
 		}
 		IAccessible* pacc=NULL;
@@ -1143,7 +1143,7 @@ if(!(formatState&FORMATSTATE_INSERTED)&&nodeName.compare(L"INS")==0) {
 	)))
 		attribsMap[L"name"]=IAName;
 
-	//Add a textNode to the buffer containing any special content retreaved
+	//Add a textNode to the buffer containing any special content retrieved
 	if(!hidden&&!contentString.empty()) {
 		previousNode=buffer->addTextFieldNode(parentNode,previousNode,contentString);
 		fillTextFormattingForNode(pHTMLDOMNode,previousNode);
@@ -1311,7 +1311,7 @@ if(!(formatState&FORMATSTATE_INSERTED)&&nodeName.compare(L"INS")==0) {
 }
 
 void MshtmlVBufBackend_t::render(VBufStorage_buffer_t* buffer, int docHandle, int ID, VBufStorage_controlFieldNode_t* oldNode) {
-	LOG_DEBUG(L"Rendering from docHandle "<<docHandle<<L", ID "<<ID<<L", in to buffer at "<<buffer);
+	LOG_DEBUG(L"Rendering from docHandle "<<docHandle<<L", ID "<<ID<<L", into buffer at "<<buffer);
 	LOG_DEBUG(L"Getting document from window "<<docHandle);
 	LRESULT res=SendMessage((HWND)UlongToHandle(docHandle),WM_HTML_GETOBJECT,0,0);
 	if(res==0) {

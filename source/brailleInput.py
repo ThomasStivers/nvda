@@ -18,7 +18,7 @@ import keyboardHandler
 import api
 
 """Framework for handling braille input from the user.
-All braille input is represented by a {BrailleInputGesture}.
+All braille input is represented by a L{BrailleInputGesture}.
 Normally, all that is required is to create and execute a L{BrailleInputGesture},
 as there are built-in gesture bindings for braille input.
 """

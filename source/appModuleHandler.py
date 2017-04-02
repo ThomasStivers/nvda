@@ -99,7 +99,7 @@ def getAppModuleForNVDAObject(obj):
 	return getAppModuleFromProcessID(obj.processID)
 
 def getAppModuleFromProcessID(processID):
-	"""Finds the appModule that is for the given process ID. The module is also cached for later retreavals.
+	"""Finds the appModule that is for the given process ID. The module is also cached for later retrievals.
 	@param processID: The ID of the process for which you wish to find the appModule.
 	@type processID: int
 	@returns: the appModule, or None if there isn't one

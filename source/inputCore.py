@@ -682,7 +682,7 @@ class _AllGestureMappingsRetriever(object):
 
 class AllGesturesScriptInfo(object):
 	__slots__ = ("cls", "scriptName", "category", "displayName", "gestures")
-	
+
 	def __init__(self, cls, scriptName):
 		self.cls = cls
 		self.scriptName = scriptName

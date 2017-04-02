@@ -198,14 +198,14 @@ def CreateStdAccessibleObject(hwnd,objectID,interface=IAccessible):
 
 def AccessibleObjectFromWindow(hwnd,objectID,interface=IAccessible):
 	"""
-	Retreaves a COM object from the given window, with the given object ID.
-	@param hwnd: the handle of the window to retreave the object from.
+	retrieves a COM object from the given window, with the given object ID.
+	@param hwnd: the handle of the window to retrieve the object from.
 	@type hwnd: int
-	@param objectID: one of the OBJID_* constants or a custom positive value representing the specific object you want to retreave.
+	@param objectID: one of the OBJID_* constants or a custom positive value representing the specific object you want to retrieve.
 	@type objectID: int
-	@param interface: the requested COM interface you wish to use on the retreaved object.
+	@param interface: the requested COM interface you wish to use on the retrieved object.
 	@type interface: comtypes COM interface
-	@return: the retreaved object.
+	@return: the retrieved object.
 	@rtype: COMObject
 	"""
 	p=POINTER(interface)()
@@ -225,14 +225,14 @@ def AccessibleObjectFromWindow_safe(hwnd,objectID,interface=IAccessible,timeout=
 
 def AccessibleObjectFromEvent(hwnd,objectID,childID):
 	"""
-	Retreaves an  IAccessible object from the given window, with the given object ID and child ID.
-	@param hwnd: the handle of the window to retreave the object from.
+	retrieves an  IAccessible object from the given window, with the given object ID and child ID.
+	@param hwnd: the handle of the window to retrieve the object from.
 	@type hwnd: int
-	@param objectID: one of the OBJID_* constants or a custom positive value representing the specific object you want to retreave.
+	@param objectID: one of the OBJID_* constants or a custom positive value representing the specific object you want to retrieve.
 	@type objectID: int
-	@param childID: the ID of the child element you wish to retreave.
+	@param childID: the ID of the child element you wish to retrieve.
 	@type childID: int
-	@return: the retreaved object.
+	@return: the retrieved object.
 	@rtype: COMObject
 	"""
 	p=POINTER(IAccessible)()
@@ -258,7 +258,7 @@ def AccessibleObjectFromEvent_safe(hwnd,objectID,childID,timeout=2):
 
 def WindowFromAccessibleObject(pacc):
 	"""
-	Retreaves the handle of the window this IAccessible object belongs to.
+	retrieves the handle of the window this IAccessible object belongs to.
 	@param pacc: the IAccessible object who's window you want to fetch.
 	@type pacc: POINTER(IAccessible)
 	@return: the window handle.
@@ -286,10 +286,10 @@ def AccessibleChildren(pacc,iChildStart,cChildren):
 	return [x.value for x in varChildren[0:pcObtained.value]]
 
 def GetProcessHandleFromHwnd(windowHandle):
-	"""Retreaves a process handle of the process who owns the window.
+	"""retrieves a process handle of the process who owns the window.
 	If Windows Vista, uses GetProcessHandleFromHwnd found in oleacc.dll which allows a client with UIAccess to open a process who is elevated.
 	if older than Windows Vista, just uses OpenProcess from user32.dll instead.
-	@param windowHandle: a window of a process you wish to retreave a process handle for
+	@param windowHandle: a window of a process you wish to retrieve a process handle for
 	@type windowHandle: integer
 	@returns: a process handle with read, write and operation access
 	@rtype: integer

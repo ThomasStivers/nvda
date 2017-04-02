@@ -4,7 +4,7 @@
 #This file is covered by the GNU General Public License.
 #See the file COPYING for more details.
 
-"""Contains the base classes that many of NVDA's classes such as NVDAObjects, virtualBuffers, appModules, synthDrivers inherit from. These base classes provide such things as auto properties, and methods and properties for scripting and key binding.
+"""Contains the base classes that many of NVDA's classes such as L{NVDAObject}s, L{VirtualBuffer}s, L{AppModule}s, L{SynthDriver}s inherit from. These base classes provide such things as auto properties, and methods and properties for scripting and key binding.
 """
 
 import weakref
@@ -81,7 +81,7 @@ class AutoPropertyObject(object):
 	_set_x will make a property x with a setter (you can set its value).
 	If there is a _get_x but no _set_x then setting x will override the property completely.
 	Properties can also be cached for the duration of one core pump cycle.
-	This is useful if the same property is likely to be fetched multiple times in one cycle. For example, several NVDAObject properties are fetched by both braille and speech.
+	This is useful if the same property is likely to be fetched multiple times in one cycle. For example, several L{NVDAObject} properties are fetched by both braille and speech.
 	Setting _cache_x to C{True} specifies that x should be cached. Setting it to C{False} specifies that it should not be cached.
 	If _cache_x is not set, L{cachePropertiesByDefault} is used.
 	"""

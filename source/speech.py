@@ -285,7 +285,7 @@ def speakObjectProperties(obj,reason=controlTypes.REASON_QUERY,index=None,**allo
 	#If we should only cache we can stop here
 	if reason==controlTypes.REASON_ONLYCACHE:
 		return
-	#If only speaking change, then filter out all values that havn't changed
+	#If only speaking change, then filter out all values that haven't changed
 	if reason==controlTypes.REASON_CHANGE:
 		for name in set(newPropertyValues)&set(oldCachedPropertyValues):
 			if newPropertyValues[name]==oldCachedPropertyValues[name]:
@@ -658,7 +658,7 @@ def speakTypedCharacters(ch):
 		speakSpelling(realChar)
 
 class SpeakTextInfoState(object):
-	"""Caches the state of speakTextInfo such as the current controlField stack, current formatfield and indentation."""
+	"""Caches the state of speakTextInfo such as the current controlField stack, current formatField and indentation."""
 
 	__slots__=[
 		'objRef',
@@ -763,7 +763,7 @@ def speakTextInfo(info,useCache=True,formatConfig=None,unit=None,reason=controlT
 	#Calculate how many fields in the old and new controlFieldStacks are the same
 	commonFieldCount=0
 	for count in xrange(min(len(newControlFieldStack),len(controlFieldStackCache))):
-		# #2199: When comparing controlFields try using uniqueID if it exists before resorting to compairing the entire dictionary
+		# #2199: When comparing controlFields try using uniqueID if it exists before resorting to comparing the entire dictionary
 		oldUniqueID=controlFieldStackCache[count].get('uniqueID')
 		newUniqueID=newControlFieldStack[count].get('uniqueID')
 		if ((oldUniqueID is not None or newUniqueID is not None) and newUniqueID==oldUniqueID) or (newControlFieldStack[count]==controlFieldStackCache[count]):
@@ -1154,7 +1154,7 @@ def getControlFieldSpeech(attrs,ancestorAttrs,fieldType,formatConfig=None,extraD
 		if content and not speakContentFirst:
 			out.append(content)
 		return CHUNK_SEPARATOR.join(out)
-		
+
 	elif fieldType in ("end_removedFromControlFieldStack","end_relative") and roleText and ((not extraDetail and speakExitForLine) or (extraDetail and speakExitForOther)):
 		# Translators: Indicates end of something (example output: at the end of a list, speaks out of list).
 		return _("out of %s")%roleText
@@ -1696,7 +1696,7 @@ speakWithoutPauses._pendingSpeechSequence=[]
 
 class SpeechCommand(object):
 	"""
-	The base class for objects that can be inserted between string of text for parituclar speech functions that convey  things such as indexing or voice parameter changes.
+	The base class for objects that can be inserted between strings of text for particular speech functions that convey  things such as indexing or voice parameter changes.
 	"""
 
 class IndexCommand(SpeechCommand):

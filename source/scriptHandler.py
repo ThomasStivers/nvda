@@ -208,7 +208,7 @@ def isScriptWaiting():
 
 def isCurrentScript(scriptFunc):
 	"""Finds out if the given script is equal to the script that L{isCurrentScript} is being called from.
-	@param scriptFunc: the script retreaved from ScriptableObject.getScript(gesture)
+	@param scriptFunc: the script retrieved from ScriptableObject.getScript(gesture)
 	@type scriptFunc: Instance method
 	@returns: True if they are equal, False otherwise
 	@rtype: boolean

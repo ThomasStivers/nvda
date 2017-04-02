@@ -37,8 +37,8 @@ def isUsableWindow(windowHandle):
 
 class WindowProcessHandleContainer(object):
 	"""
-	Manages a Windows process handle. On instanciation it retreaves an open process handle from the process of the provided window, and closes the handle on deletion. 
-	@ivar windowHandle: the handle of the window the whos process handle was requested
+	Manages a Windows process handle. On instantiation it retrieves an open process handle from the process of the provided window, and closes the handle on deletion. 
+	@ivar windowHandle: the handle of the window whose process handle was requested
 	@type windowHandle: int
 	@ivar processHandle: The actual handle which can be used in any win32 calls that need it.
 	@type processHandle: int
@@ -46,7 +46,7 @@ class WindowProcessHandleContainer(object):
  
 	def __init__(self,windowHandle):
 		"""
-		@param windowHandle: the handle of the window whos process handle should be retreaved.
+		@param windowHandle: the handle of the window whose process handle should be retrieved.
 		@type windowHandle: int
 		"""
 		self.windowHandle=windowHandle
@@ -261,7 +261,7 @@ An NVDAObject for a window
 	def _get_parent(self):
 		parentHandle=winUser.getAncestor(self.windowHandle,winUser.GA_PARENT)
 		if parentHandle:
-			#Because we, we need to get the APIclass manually need to  set the relation as parent
+			#Because we need to get the APIClass manually need to  set the relation as parent
 			kwargs=dict(windowHandle=parentHandle)
 			APIClass=Window.findBestAPIClass(kwargs,relation="parent")
 			return APIClass(**kwargs) if APIClass else None

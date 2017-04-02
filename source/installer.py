@@ -295,7 +295,7 @@ def unregisterAddonFileAssociation():
 	# Notify the shell that a file association has changed:
 	shellapi.SHChangeNotify(shellapi.SHCNE_ASSOCCHANGED, shellapi.SHCNF_IDLIST, None, None)
 
-# Windows API call regDeleteTree is only available on vist and above so rule our own.
+# Windows API call regDeleteTree is only available on vist and above so roll our own.
 def _deleteKeyAndSubkeys(key, subkey):
 	with _winreg.OpenKey(key, subkey, 0, _winreg.KEY_WRITE|_winreg.KEY_READ) as k:
 		# Recursively delete subkeys (Depth first search order)

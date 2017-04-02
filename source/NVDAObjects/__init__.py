@@ -208,10 +208,10 @@ class NVDAObject(baseObject.ScriptableObject):
 	@classmethod
 	def kwargsFromSuper(cls,kwargs,relation=None):
 		"""
-		Finds out if this class can be instanciated from the given super kwargs.
-		If so it updates the kwargs to contain everything it will need to instanciate this class, and returns True.
-		If this class can not be instanciated, it returns False and kwargs is not touched.
-		@param relation: why is this class being instanciated? parent, focus, foreground etc...
+		Finds out if this class can be instantiated from the given super kwargs.
+		If so it updates the kwargs to contain everything it will need to instantiate this class, and returns True.
+		If this class can not be instantiated, it returns False and kwargs is not touched.
+		@param relation: why is this class being instantiated? parent, focus, foreground etc...
 		@type relation: string
 		@param kwargs: the kwargs for constructing this class's super class.
 		@type kwargs: dict
@@ -238,7 +238,7 @@ class NVDAObject(baseObject.ScriptableObject):
 
 	@staticmethod
 	def objectFromPoint(x,y):
-		"""Retreaves an NVDAObject instance representing a control in the Operating System at the given x and y coordinates.
+		"""Retrieves an NVDAObject instance representing a control in the Operating System at the given x and y coordinates.
 		@param x: the x coordinate.
 		@type x: int
 		@param y: the y coordinate.
@@ -252,7 +252,7 @@ class NVDAObject(baseObject.ScriptableObject):
 
 	@staticmethod
 	def objectWithFocus():
-		"""Retreaves the object representing the control currently with focus in the Operating System. This differens from NVDA's focus object as this focus object is the real focus object according to the Operating System, not according to NVDA.
+		"""Retrieves the object representing the control currently with focus in the Operating System. This differens from NVDA's focus object as this focus object is the real focus object according to the Operating System, not according to NVDA.
 		@return: the object with focus.
 		@rtype: L{NVDAObject}
 		"""
@@ -270,7 +270,7 @@ class NVDAObject(baseObject.ScriptableObject):
 
 	@staticmethod
 	def objectInForeground():
-		"""Retreaves the object representing the current foreground control according to the Operating System. This differes from NVDA's foreground object as this object is the real foreground object according to the Operating System, not according to NVDA.
+		"""Retrieves the object representing the current foreground control according to the Operating System. This differs from NVDA's foreground object as this object is the real foreground object according to the Operating System, not according to NVDA.
 		@return: the foreground object
 		@rtype: L{NVDAObject}
 		"""
@@ -294,7 +294,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		return True
  
 	def __eq__(self,other):
-		"""Compaires the objects' memory addresses, their type, and uses L{NVDAObject._isEqual} to see if they are equal.
+		"""Compares the objects' memory addresses, their type, and uses L{NVDAObject._isEqual} to see if they are equal.
 		"""
 		if self is other:
 			return True
@@ -326,7 +326,7 @@ class NVDAObject(baseObject.ScriptableObject):
 	shouldCreateTreeInterceptor = True
 
 	def _get_treeInterceptor(self):
-		"""Retreaves the treeInterceptor associated with this object.
+		"""Retrieves the treeInterceptor associated with this object.
 		If a treeInterceptor has not been specifically set, the L{treeInterceptorHandler} is asked if it can find a treeInterceptor containing this object.
 		@return: the treeInterceptor
 		@rtype: L{treeInterceptorHandler.TreeInterceptor}
@@ -355,7 +355,7 @@ class NVDAObject(baseObject.ScriptableObject):
 			self._treeInterceptor=None
 
 	def _get_appModule(self):
-		"""Retreaves the appModule representing the application this object is a part of by asking L{appModuleHandler}.
+		"""Retrieves the appModule representing the application this object is a part of by asking L{appModuleHandler}.
 		@return: the appModule
 		@rtype: L{appModuleHandler.AppModule}
 		"""
@@ -393,15 +393,15 @@ class NVDAObject(baseObject.ScriptableObject):
 		return ""
 
 	def _get_controllerFor(self):
-		"""Retreaves the object/s that this object controls."""
+		"""Retrieves the object/s that this object controls."""
 		return []
 
 	def _get_actionCount(self):
-		"""Retreaves the number of actions supported by this object."""
+		"""Retrieves the number of actions supported by this object."""
 		return 0
 
 	def getActionName(self,index=None):
-		"""Retreaves the name of an action supported by this object.
+		"""Retrieves the name of an action supported by this object.
 		If index is not given then the default action will be used if it exists.
 		@param index: the optional 0-based index of the wanted action.
 		@type index: int
@@ -417,7 +417,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		raise NotImplementedError
 
 	def _get_defaultActionIndex(self):
-		"""Retreaves the index of the action that is the default."""
+		"""Retrieves the index of the action that is the default."""
 		return 0
 
 	def _get_keyboardShortcut(self):
@@ -433,7 +433,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		raise NotImplementedError
 
 	def _get_states(self):
-		"""Retreaves the current states of this object (example: selected, focused).
+		"""retrieves the current states of this object (example: selected, focused).
 		@return: a set of  STATE_* constants from L{controlTypes}.
 		@rtype: set of int
 		"""
@@ -462,7 +462,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		return _("Object edges positioned {left:.1f} per cent from left edge of screen, {top:.1f} per cent from top edge of screen, width is {width:.1f} per cent of screen, height is {height:.1f} per cent of screen").format(left=percentFromLeft,top=percentFromTop,width=percentWidth,height=percentHeight)
 
 	def _get_parent(self):
-		"""Retreaves this object's parent (the object that contains this object).
+		"""retrieves this object's parent (the object that contains this object).
 		@return: the parent object if it exists else None.
 		@rtype: L{NVDAObject} or None
 		"""
@@ -470,7 +470,7 @@ class NVDAObject(baseObject.ScriptableObject):
 
 	def _get_container(self):
 		"""
-		Exactly like parent, however another object at this same sibling level may be retreaved first (e.g. a groupbox). Mostly used when presenting context such as focus ancestry.
+		Exactly like parent, however another object at this same sibling level may be retrieved first (e.g. a groupbox). Mostly used when presenting context such as focus ancestry.
 		"""
 		# Cache parent.
 		parent = self.parent
@@ -478,35 +478,35 @@ class NVDAObject(baseObject.ScriptableObject):
 		return parent
 
 	def _get_next(self):
-		"""Retreaves the object directly after this object with the same parent.
+		"""retrieves the object directly after this object with the same parent.
 		@return: the next object if it exists else None.
 		@rtype: L{NVDAObject} or None
 		"""
 		return None
 
 	def _get_previous(self):
-		"""Retreaves the object directly before this object with the same parent.
+		"""retrieves the object directly before this object with the same parent.
 		@return: the previous object if it exists else None.
 		@rtype: L{NVDAObject} or None
 		"""
 		return None
 
 	def _get_firstChild(self):
-		"""Retreaves the first object that this object contains.
+		"""retrieves the first object that this object contains.
 		@return: the first child object if it exists else None.
 		@rtype: L{NVDAObject} or None
 		"""
 		return None
 
 	def _get_lastChild(self):
-		"""Retreaves the last object that this object contains.
+		"""retrieves the last object that this object contains.
 		@return: the last child object if it exists else None.
 		@rtype: L{NVDAObject} or None
 		"""
 		return None
 
 	def _get_children(self):
-		"""Retreaves a list of all the objects directly contained by this object (who's parent is this object).
+		"""retrieves a list of all the objects directly contained by this object (who's parent is this object).
 		@rtype: list of L{NVDAObject}
 		"""
 		children=[]
@@ -528,13 +528,13 @@ class NVDAObject(baseObject.ScriptableObject):
 		return self.children[index]
 
 	def _get_rowNumber(self):
-		"""Retreaves the row number of this object if it is in a table.
+		"""retrieves the row number of this object if it is in a table.
 		@rtype: int
 		"""
 		raise NotImplementedError
 
 	def _get_columnNumber(self):
-		"""Retreaves the column number of this object if it is in a table.
+		"""retrieves the column number of this object if it is in a table.
 		@rtype: int
 		"""
 		raise NotImplementedError
@@ -545,16 +545,15 @@ class NVDAObject(baseObject.ScriptableObject):
 		Only implement if the representation is really different.
 		"""
 		return None
-		
 
 	def _get_rowCount(self):
-		"""Retreaves the number of rows this object contains if its a table.
+		"""retrieves the number of rows this object contains if its a table.
 		@rtype: int
 		"""
 		raise NotImplementedError
 
 	def _get_columnCount(self):
-		"""Retreaves the number of columns this object contains if its a table.
+		"""retrieves the number of columns this object contains if its a table.
 		@rtype: int
 		"""
 		raise NotImplementedError
@@ -572,7 +571,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		raise NotImplementedError
 
 	def _get_table(self):
-		"""Retreaves the object that represents the table that this object is contained in, if this object is a table cell.
+		"""retrieves the object that represents the table that this object is contained in, if this object is a table cell.
 		@rtype: L{NVDAObject}
 		"""
 		raise NotImplementedError
@@ -585,7 +584,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		even if the user moves to a cell in the same row/column.
 		"""
 		raise NotImplementedError
-		
+
 	def _get_recursiveDescendants(self):
 		"""Recursively traverse and return the descendants of this object.
 		This is a depth-first forward traversal.
@@ -607,7 +606,7 @@ class NVDAObject(baseObject.ScriptableObject):
 			return self.presType_unavailable
 		role=self.role
 
-		#Static text should be content only if it really use usable text
+		#Static text should be content only if it really is usable text
 		if role==controlTypes.ROLE_STATICTEXT:
 			text=self.makeTextInfo(textInfos.POSITION_ALL).text
 			return self.presType_content if text and not text.isspace() else self.presType_layout
@@ -695,13 +694,13 @@ class NVDAObject(baseObject.ScriptableObject):
 		return child
 
 	def _get_childCount(self):
-		"""Retreaves the number of children this object contains.
+		"""retrieves the number of children this object contains.
 		@rtype: int
 		"""
 		return len(self.children)
 
 	def _get_activeChild(self):
-		"""Retreaves the child of this object that currently has, or contains, the focus.
+		"""retrieves the child of this object that currently has, or contains, the focus.
 		@return: the active child if it has one else None
 		@rtype: L{NVDAObject} or None
 		"""
@@ -731,21 +730,21 @@ Tries to force this object to take the focus.
 		raise NotImplementedError
 
 	def _get_labeledBy(self):
-		"""Retreaves the object that this object is labeled by (example: the static text label beside an edit field).
+		"""retrieves the object that this object is labeled by (example: the static text label beside an edit field).
 		@return: the label object if it has one else None.
 		@rtype: L{NVDAObject} or None 
 		"""
 		return None
 
 	def _get_positionInfo(self):
-		"""Retreaves position information for this object such as its level, its index with in a group, and the number of items in that group.
+		"""retrieves position information for this object such as its level, its index with in a group, and the number of items in that group.
 		@return: a dictionary containing any of level, groupIndex and similarItemsInGroup.
 		@rtype: dict
 		"""
 		return {}
 
 	def _get_processID(self):
-		"""Retreaves an identifyer of the process this object is a part of.
+		"""retrieves an identifyer of the process this object is a part of.
 		@rtype: int
 		"""
 		raise NotImplementedError

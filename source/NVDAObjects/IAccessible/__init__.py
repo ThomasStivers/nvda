@@ -612,7 +612,7 @@ the NVDAObject for IAccessible
 			IAccessibleHandler.liveNVDAObjectTable[(event_windowHandle,event_objectID,event_childID)]=self
 
 	def isDuplicateIAccessibleEvent(self,obj):
-		"""Compaires the object of an event to self to see if the event should be treeted as duplicate."""
+		"""Compares the object of an event to self to see if the event should be treeted as duplicate."""
 		#MSAA child elements do not have unique winEvent params as a childID could be reused if an element was deleted etc
 		if self.IAccessibleChildID>0:
 			return False
@@ -1496,7 +1496,7 @@ class ShellDocObjectView(IAccessible):
 
 	def event_gainFocus(self):
 		#Sometimes Shell DocObject View gets focus, when really the document inside it should
-		#Adobe Reader 9 licence agreement
+		#Adobe Reader 9 license agreement
 		if eventHandler.isPendingEvents("gainFocus") or self.childCount!=1:
 			return super(ShellDocObjectView,self).event_gainFocus()
 		child=self.firstChild
@@ -1665,7 +1665,7 @@ class InaccessibleListBoxItem(IAccessible):
 class InaccessibleComboBox(IAccessible):
 	"""
 	Used for inaccessible owner drawn ComboBox controls.
-	Overrides value  to use display model text as MSAA doesn't provide a suitable vale (it's usually either empty or contains garbage).
+	Overrides value  to use display model text as MSAA doesn't provide a suitable value (it's usually either empty or contains garbage).
 	"""
 
 	def _get_value(self):
@@ -1701,7 +1701,7 @@ class ReBarWindow32Client(IAccessible):
 	def _get_lastChild(self):
 		return super(IAccessible,self).lastChild
 
-#A class for the listview window class, found sof ar only in the Cygwin Setup program.
+#A class for the listview window class, found so far only in the Cygwin Setup program.
 #Makes sure its available in simple review mode, and uses display model
 class ListviewPane(IAccessible):
 	presentationType=IAccessible.presType_content

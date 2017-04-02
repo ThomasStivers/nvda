@@ -39,9 +39,9 @@ class ScreenBitmap(object):
 
 	def captureImage(self,x,y,w,h):
 		"""
-		Captures the part of the screen starting at x,y and extends by w (width) and h (height), and stretches/shrinks it to fit in to the object's bitmap size.
+		Captures the part of the screen starting at x,y and extends by w (width) and h (height), and stretches/shrinks it to fit into the object's bitmap size.
 		"""
-	#Copy the requested content from the screen in to our memory device context, stretching/shrinking its size to fit.
+	#Copy the requested content from the screen into our memory device context, stretching/shrinking its size to fit.
 		gdi32.StretchBlt(self._memDC,0,0,self.width,self.height,self._screenDC,x,y,w,h,winGDI.SRCCOPY)
 		#Fetch the pixels from our memory bitmap and store them in a buffer to be returned
 		buffer=(winGDI.RGBQUAD*w*h)()
@@ -49,5 +49,5 @@ class ScreenBitmap(object):
 		return buffer
 
 def rgbPixelBrightness(p):
-	"""Converts a RGBQUAD pixel in to  one grey-scale brightness value."""
+	"""Converts a RGBQUAD pixel into  one grey-scale brightness value."""
 	return int((0.3*p.rgbBlue)+(0.59*p.rgbGreen)+(0.11*p.rgbRed))
