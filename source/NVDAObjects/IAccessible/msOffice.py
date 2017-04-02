@@ -82,7 +82,7 @@ class MSOUNISTAT(IAccessible):
 class MsoCommandBarToolBar(IAccessible):
 
 	def _get_isPresentableFocusAncestor(self):
-		# #4096: Many single controls are  wrapped in their own SmoCommandBar toolbar.
+		# #4096: Many single controls are  wrapped in their own MsoCommandBar toolbar.
 		# Therefore suppress reporting of these toolbars in focus ancestry if they only have one child.
 		if self.childCount==1:
 			return False
@@ -127,7 +127,7 @@ class BrokenMsoCommandBar(IAccessible):
 		return name
 
 class CommandBarListItem(IAccessible):
-	"""A list item in an MSO commandbar, that may be part of a color palet."""
+	"""A list item in an MSO commandBar, that may be part of a color pallet."""
 
 	COMPILED_RE = re.compile(r'RGB\(\d+, \d+, \d+\)',re.I)
 	def _get_rgbNameAndMatch(self):

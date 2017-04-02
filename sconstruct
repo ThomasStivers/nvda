@@ -79,7 +79,7 @@ if "tests" in COMMAND_LINE_TARGETS:
 #Base environment for this and sub sconscripts
 env = Environment(variables=vars,HOST_ARCH='x86',tools=["textfile","gettext","t2t",keyCommandsDocTool,'doxygen','recursiveInstall'])
 
-# speed up subsiquent runs by checking timestamps of targets and dependencies, and only using md5 if timestamps differ.
+# speed up subsequent runs by checking timestamps of targets and dependencies, and only using md5 if timestamps differ.
 env.Decider('MD5-timestamp')
 
 #Make our recursiveCopy function available to any script using this environment

@@ -228,7 +228,7 @@ class ScintillaTextInfo(textInfos.offsets.OffsetsTextInfo):
 		return [start,end]
 
 
-#The Scintilla NVDA object, inherists the generic MSAA NVDA object
+#The Scintilla NVDA object, inherits the generic MSAA NVDA object
 class Scintilla(EditableTextWithAutoSelectDetection, Window):
 
 	TextInfo=ScintillaTextInfo

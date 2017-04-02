@@ -325,7 +325,7 @@ Plugins make use of NVDA Objects in three particular ways:
 - Most events that plugins receive take an argument which is the NVDA Object on which the event occurred.
 For example, event_gainFocus takes the NVDA Object that represents the control gaining focus.
 - Scripts, events or other code may fetch objects of interest such as the NVDA Object with focus, NVDA's current navigator object, or perhaps the Desktop NVDA Object.
-The code may then retreave information from that object or perhaps even retreave another object related to it (e.g. its parent, first child, etc.).
+The code may then retrieve information from that object or perhaps even retrieve another object related to it (e.g. its parent, first child, etc.).
 - the Plugin may define its own custom NVDA Object classes which will be used to wrap a specific control to give it extra functionality, mutate its properties, etc.
 -
 

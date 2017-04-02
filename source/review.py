@@ -139,7 +139,7 @@ def nextMode(prev=False,startMode=None):
 def handleCaretMove(pos):
 	"""
 	Instructs the review position to be updated due to caret movement.
-	@param pos: Either a TextInfo instance at the caret position, or an NVDAObject or TeeInterceptor who's caret position should be retreaved.
+	@param pos: Either a TextInfo instance at the caret position, or an NVDAObject or TeeInterceptor who's caret position should be retrieved.
 	@type pos: L{textInfos.TextInfo} or L{NVDAObject} or L{TreeInterceptor}
 	"""
 	if not config.conf["reviewCursor"]["followCaret"]:

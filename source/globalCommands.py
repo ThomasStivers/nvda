@@ -1002,7 +1002,7 @@ class GlobalCommands(ScriptableObject):
 	# Translators: Input help mode message for read current line under review cursor command.
 	script_review_currentLine.__doc__=_("Reports the line of the current navigator object where the review cursor is situated. If this key is pressed twice, the current line will be spelled. Pressing three times will spell the line using character descriptions.")
 	script_review_currentLine.category=SCRCAT_TEXTREVIEW
- 
+
 	def script_review_nextLine(self,gesture):
 		info=api.getReviewPosition().copy()
 		info.expand(textInfos.UNIT_LINE)
@@ -1657,7 +1657,7 @@ class GlobalCommands(ScriptableObject):
 
 	def script_activateAddonsManager(self,gesture):
 		wx.CallAfter(gui.mainFrame.onAddonsManagerCommand, None)
-		# Translators: Input help mode message for activate manage add-ons command.
+	# Translators: Input help mode message for activate manage add-ons command.
 	script_activateAddonsManager.__doc__ = _("Activates the NVDA Add-ons Manager to install and uninstall add-on packages for NVDA")
 	script_activateAddonsManager.category=SCRCAT_TOOLS
 
@@ -1673,7 +1673,7 @@ class GlobalCommands(ScriptableObject):
 			gui.speechViewer.activate()
 			gui.mainFrame.sysTrayIcon.menu_tools_toggleSpeechViewer.Check(True)
 		ui.message(state)
-		# Translators: Input help mode message for toggle speech viewer command.
+	# Translators: Input help mode message for toggle speech viewer command.
 	script_toggleSpeechViewer.__doc__ = _("Toggles the NVDA Speech viewer, a floating window that allows you to view all the text that NVDA is currently speaking")
 	script_toggleSpeechViewer.category=SCRCAT_TOOLS
 

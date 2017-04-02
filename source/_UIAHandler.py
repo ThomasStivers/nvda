@@ -54,7 +54,7 @@ badUIAWindowClassNames=[
 	"RICHEDIT50W",
 	"SysListView32",
 	"_WwG",
-	'_WwN',
+	"_WwN",
 	"EXCEL7",
 	"Button",
 ]
@@ -324,7 +324,7 @@ class UIAHandler(COMObject):
 
 	def isNativeUIAElement(self,UIAElement):
 		#Due to issues dealing with UIA elements coming from the same process, we do not class these UIA elements as usable.
-		#It seems to be safe enough to retreave the cached processID, but using tree walkers or fetching other properties causes a freeze.
+		#It seems to be safe enough to retrieve the cached processID, but using tree walkers or fetching other properties causes a freeze.
 		try:
 			processID=UIAElement.cachedProcessId
 		except COMError:

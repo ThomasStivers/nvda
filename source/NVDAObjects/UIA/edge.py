@@ -24,7 +24,7 @@ from . import UIA, UIATextInfo
 class EdgeTextInfo(UIATextInfo):
 
 	def _get_UIAElementAtStartWithReplacedContent(self):
-		"""Fetches the deepest UIAElement at the start of the text range whos name has been overridden by the author (such as aria-label)."""
+		"""Fetches the deepest UIAElement at the start of the text range whose name has been overridden by the author (such as aria-label)."""
 		element=self.UIAElementAtStart
 		condition=createUIAMultiPropertyCondition({UIAHandler.UIA_ControlTypePropertyId:self.UIAControlTypesWhereNameIsContent})
 		# A part from the condition given, we must always match on the root of the document so we know when to stop walking

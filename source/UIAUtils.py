@@ -10,7 +10,7 @@ import UIAHandler
 def createUIAMultiPropertyCondition(*dicts):
 	"""
 	A helper function that Creates a complex UI Automation Condition matching on various UI Automation properties with both 'and' and 'or'.
-	Arguments to this function are dicts whos keys are UI Automation property IDs, and whos values are a list of possible values for the property ID.
+	Arguments to this function are dicts whose keys are UI Automation property IDs, and whose values are a list of possible values for the property ID.
 	The dicts are joined with 'or', the keys in each dict are joined with 'and', and the values  for each key are joined with 'or'.
 	For example,  to create a condition that matches on a controlType of button or edit and where isReadOnly is True, or, className is 'ding', you would provide arguments of:
 	{UIA_ControlTypePropertyId:[UIA_ButtonControlTypeId,UIA_EditControlTypeId],UIA_Value_ValueIsReadOnly:[True]},{UIA_ClassNamePropertyId:['ding']}
@@ -151,7 +151,7 @@ class CacheableUIAElementArray(object):
 		return e
 
 def getChildrenWithCacheFromUIATextRange(textRange,cacheRequest):
-	"""A thin wrapper around IUIAutomationTextRange3::getChildrenBuildCache if it exists, otherwise IUIAutomationTextRange::getChildren but wraps the result in an object that automatically calls IUIAutomationElement::buildUpdateCache on any element retreaved."""
+	"""A thin wrapper around IUIAutomationTextRange3::getChildrenBuildCache if it exists, otherwise IUIAutomationTextRange::getChildren but wraps the result in an object that automatically calls IUIAutomationElement::buildUpdateCache on any element retrieved."""
 	if not isinstance(textRange,UIAHandler.IUIAutomationTextRange):
 		raise ValueError("%s is not a text range"%textRange)
 	try:

@@ -65,7 +65,7 @@ def mergeQuickNavItemIterators(iterators,direction="next"):
 	"""
 	finder=min if direction=="next" else max
 	curValues=[]
-	# Populate a list with all iterators and their corisponding first value
+	# Populate a list with all iterators and their corresponding first value
 	for it in iterators:
 		try:
 			val=next(it)
@@ -744,7 +744,7 @@ class ElementsListDialog(wx.Dialog):
 		# in the browse mode Elements List dialog.
 		self.activateButton = bHelper.addButton(self, label=_("&Activate"))
 		self.activateButton.Bind(wx.EVT_BUTTON, lambda evt: self.onAction(True))
-		
+
 		# Translators: The label of a button to move to an element
 		# in the browse mode Elements List dialog.
 		self.moveButton = bHelper.addButton(self, label=_("&Move to"))

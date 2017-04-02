@@ -495,7 +495,7 @@ IA2_EVENT_PAGE_CHANGED:"pageChange",
 }
 
 def winEventToNVDAEvent(eventID,window,objectID,childID,useCache=True):
-	"""Tries to convert a win event ID to an NVDA event name, and instanciate or fetch an NVDAObject for the win event parameters.
+	"""Tries to convert a win event ID to an NVDA event name, and instantiate or fetch an NVDAObject for the win event parameters.
 	@param eventID: the win event ID (type)
 	@type eventID: integer
 	@param window: the win event's window handle
@@ -525,7 +525,7 @@ def winEventToNVDAEvent(eventID,window,objectID,childID,useCache=True):
 	if useCache:
 		#See if we already know an object by this win event info
 		obj=liveNVDAObjectTable.get((window,objectID,childID),None)
-	#If we don't yet have the object, then actually instanciate it.
+	#If we don't yet have the object, then actually instantiate it.
 	if not obj: 
 		obj=NVDAObjects.IAccessible.getNVDAObjectFromEvent(window,objectID,childID)
 	#At this point if we don't have an object then we can't do any more
@@ -628,7 +628,7 @@ def processGenericWinEvent(eventID,window,objectID,childID):
 
 def processFocusWinEvent(window,objectID,childID,force=False):
 	"""checks to see if the focus win event is not the same as the existing focus, 
-	then converts the win event to an NVDA event (instanciating an NVDA Object) then calls processFocusNVDAEvent. If all is ok it returns True.
+	then converts the win event to an NVDA event (instantiating an NVDA Object) then calls processFocusNVDAEvent. If all is ok it returns True.
 	@type window: integer
 	@param objectID: a win event's object ID
 	@type objectID: integer
@@ -723,7 +723,7 @@ def _correctFocus():
 
 def processForegroundWinEvent(window,objectID,childID):
 	"""checks to see if the foreground win event is not the same as the existing focus or any of its parents, 
-	then converts the win event to an NVDA event (instanciating an NVDA Object) and then checks the NVDAObject against the existing focus object. 
+	then converts the win event to an NVDA event (instantiating an NVDA Object) and then checks the NVDAObject against the existing focus object. 
 	If all is ok it queues the foreground event to NVDA and returns True.
 	@param window: a win event's window handle
 	@type window: integer

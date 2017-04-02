@@ -60,12 +60,12 @@ def saveState():
 		log.debugWarning("Error saving state", exc_info=True)
 
 def getRunningAddons():
-	""" Returns currently loaded addons.
+	""" Returns currently loaded add-ons.
 	"""
 	return (addon for addon in getAvailableAddons() if addon.isRunning)
 
 def completePendingAddonRemoves():
-	"""Removes any addons that could not be removed on the last run of NVDA"""
+	"""Removes any add-ons that could not be removed on the last run of NVDA"""
 	user_addons = os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons"))
 	pendingRemovesSet=state['pendingRemovesSet']
 	for addonName in list(pendingRemovesSet):
@@ -88,7 +88,7 @@ def completePendingAddonInstalls():
 		try:
 			os.rename(oldPath,newPath)
 		except:
-			log.error("Failed to complete addon installation for %s"%addonName,exc_info=True)
+			log.error("Failed to complete add-on installation for %s"%addonName,exc_info=True)
 	pendingInstallsSet.clear()
 
 def removeFailedDeletions():
@@ -133,7 +133,7 @@ def terminate():
 	pass
 
 def _getDefaultAddonPaths():
-	""" Returns paths where addons can be found.
+	""" Returns paths where add-ons can be found.
 	For now, only <userConfig\addons is supported.
 	@rtype: list(string)
 	"""
@@ -145,10 +145,10 @@ def _getDefaultAddonPaths():
 
 def _getAvailableAddonsFromPath(path):
 	""" Gets available add-ons from path.
-	An addon is only considered available if the manifest file is loaded with no errors.
-	@param path: path from where to find addon directories.
+	An add-on is only considered available if the manifest file is loaded with no errors.
+	@param path: path from where to find add-on directories.
 	@type path: string
-	@rtype generator of Addon instances
+	@rtype generator of Add-on instances
 	"""
 	log.debug("Listing add-ons from %s", path)
 	for p in os.listdir(path):
@@ -164,12 +164,12 @@ def _getAvailableAddonsFromPath(path):
 					log.debug("Disabling add-on %s", name)
 				yield a
 			except:
-				log.error("Error loading Addon from path: %s", addon_path, exc_info=True)
+				log.error("Error loading Add-on from path: %s", addon_path, exc_info=True)
 
 _availableAddons = collections.OrderedDict()
 def getAvailableAddons(refresh=False):
-	""" Gets all available addons on the system.
-	@rtype generator of Addon instances.
+	""" Gets all available add-ons on the system.
+	@rtype generator of Add-on instances.
 	"""
 	if refresh:
 		_availableAddons.clear()
@@ -179,7 +179,7 @@ def getAvailableAddons(refresh=False):
 	return _availableAddons.itervalues()
 
 def installAddonBundle(bundle):
-	"""Extracts an Addon bundle in to a unique subdirectory of the user addons directory, marking the addon as needing install completion on NVDA restart."""
+	"""Extracts an Add-on bundle in to a unique subdirectory of the user addons directory, marking the add-on as needing install completion on NVDA restart."""
 	addonPath = os.path.join(globalVars.appArgs.configPath, "addons",bundle.manifest['name']+ADDON_PENDINGINSTALL_SUFFIX)
 	bundle.extract(addonPath)
 	addon=Addon(addonPath)
@@ -189,7 +189,7 @@ def installAddonBundle(bundle):
 	try:
 		addon.runInstallTask("onInstall")
 	except:
-		log.error("task 'onInstall' on addon '%s' failed"%addon.name,exc_info=True)
+		log.error("task 'onInstall' on add-on '%s' failed"%addon.name,exc_info=True)
 		del _availableAddons[addon.path]
 		addon.completeRemove(runUninstallTask=False)
 		raise AddonError("Installation failed")
@@ -198,14 +198,14 @@ def installAddonBundle(bundle):
 	return addon
 
 class AddonError(Exception):
-	""" Represents an exception coming from the addon subsystem. """
+	""" Represents an exception coming from the add-on subsystem. """
 
 
 class Addon(object):
 	""" Represents an Add-on available on the file system."""
 	def __init__(self, path):
-		""" Constructs an L[Addon} from.
-		@param path: the base directory for the addon data.
+		""" Constructs an L{Addon} from.
+		@param path: the base directory for the add-on data.
 		@type path: string
 		"""
 		self.path = os.path.abspath(path)
@@ -224,16 +224,16 @@ class Addon(object):
 
 	@property
 	def isPendingInstall(self):
-		"""True if this addon has not yet been fully installed."""
+		"""True if this add-on has not yet been fully installed."""
 		return self.path.endswith(ADDON_PENDINGINSTALL_SUFFIX)
 
 	@property
 	def isPendingRemove(self):
-		"""True if this addon is marked for removal."""
+		"""True if this add-on is marked for removal."""
 		return not self.isPendingInstall and self.name in state['pendingRemovesSet']
 
 	def requestRemove(self):
-		"""Markes this addon for removal on NVDA restart."""
+		"""Markes this add-on for removal on NVDA restart."""
 		if self.isPendingInstall:
 			self.completeRemove()
 			state['pendingInstallsSet'].discard(self.name)
@@ -254,7 +254,7 @@ class Addon(object):
 				_availableAddons[self.path] = self
 				self.runInstallTask("onUninstall")
 			except:
-				log.error("task 'onUninstall' on addon '%s' failed"%self.name,exc_info=True)
+				log.error("task 'onUninstall' on add-on '%s' failed"%self.name,exc_info=True)
 			finally:
 				del _availableAddons[self.path]
 		tempPath=tempfile.mktemp(suffix=DELETEDIR_SUFFIX,dir=os.path.dirname(self.path))
@@ -264,7 +264,7 @@ class Addon(object):
 			raise RuntimeError("Cannot rename add-on path for deletion")
 		shutil.rmtree(tempPath,ignore_errors=True)
 		if os.path.exists(tempPath):
-			log.error("Error removing addon directory %s, deferring until next NVDA restart"%self.path)
+			log.error("Error removing add-on directory %s, deferring until next NVDA restart"%self.path)
 
 	@property
 	def name(self):
@@ -280,13 +280,13 @@ class Addon(object):
 			return
 		extension_path = os.path.join(self.path, package.__name__)
 		if not os.path.isdir(extension_path):
-			# This addon does not have extension points for this package
+			# This add-on does not have extension points for this package
 			return
 		# Python 2.x doesn't properly handle unicode import paths, so convert them before adding.
 		converted_path = self._getPathForInclusionInPackage(package)
 		package.__path__.insert(0, converted_path)
 		self._extendedPackages.add(package)
-		log.debug("Addon %s added to %s package path", self.manifest['name'], package.__name__)
+		log.debug("Add-on %s added to %s package path", self.manifest['name'], package.__name__)
 
 	def enable(self, shouldEnable):
 		"""Sets this add-on to be disabled or enabled when NVDA restarts."""
@@ -326,10 +326,10 @@ class Addon(object):
 		return extension_path.encode("mbcs")
 
 	def loadModule(self, name):
-		""" loads a python module from the addon directory
+		""" loads a python module from the add-on directory
 		@param name: the module name
 		@type name: string
-		@returns the python module with C[name}
+		@returns the python module with C{name}
 		@rtype python module
 		"""
 		log.debug("Importing module %s from plugin %s", name, self.name)
@@ -346,10 +346,10 @@ class Addon(object):
 			return None
 
 	def getTranslationsInstance(self, domain='nvda'):
-		""" Gets the gettext translation instance for this addon.
-		<addon-path<\locale will be used to find .mo files, if exists.
+		""" Gets the gettext translation instance for this add-on.
+		<addon-path>\locale will be used to find .mo files, if exists.
 		If a translation file is not found the default fallback null translation is returned.
-		@param domain: the tranlation domain to retrieve. The 'nvda' default should be used in most cases.
+		@param domain: the translation domain to retrieve. The 'nvda' default should be used in most cases.
 		@returns: the gettext translation class.
 		"""
 		localedir = os.path.join(self.path, "locale")
@@ -357,7 +357,7 @@ class Addon(object):
 
 	def runInstallTask(self,taskName,*args,**kwargs):
 		"""
-		Executes the function having the given taskName with the given args and kwargs in the addon's installTasks module if it exists.
+		Executes the function having the given taskName with the given args and kwargs in the add-on's installTasks module if it exists.
 		"""
 		if not hasattr(self,'_installTasksModule'):
 			self._installTasksModule=self.loadModule('installTasks')
@@ -400,7 +400,7 @@ class Addon(object):
 def getCodeAddon(obj=None, frameDist=1):
 	""" Returns the L{Addon} where C{obj} is defined. If obj is None the caller code frame is assumed to allow simple retrieval of "current calling addon".
 	@param obj: python object or None for default behaviour.
-	@param frameDist: howmany frames is the caller code. Only change this for functions in this module.
+	@param frameDist: how many frames is the caller code. Only change this for functions in this module.
 	@return: L{Addon} instance or None if no code does not belong to a add-on package.
 	@rtype: C{Addon}
 	"""
@@ -409,20 +409,20 @@ def getCodeAddon(obj=None, frameDist=1):
 		obj = sys._getframe(frameDist)
 	fileName  = inspect.getfile(obj)
 	dir= unicode(os.path.abspath(os.path.dirname(fileName)), "mbcs")
-	# if fileName is not a subdir of one of the addon paths
-	# It does not belong to an addon.
+	# if fileName is not a subdir of one of the add-on paths
+	# It does not belong to an add-on.
 	for p in _getDefaultAddonPaths():
 		if dir.startswith(p):
 			break
 	else:
-		raise AddonError("Code does not belong to an addon package.")
+		raise AddonError("Code does not belong to an add-on package.")
 	curdir = dir
 	while curdir not in _getDefaultAddonPaths():
 		if curdir in _availableAddons.keys():
 			return _availableAddons[curdir]
 		curdir = os.path.abspath(os.path.join(curdir, ".."))
 	# Not found!
-	raise AddonError("Code does not belong to an addon")
+	raise AddonError("Code does not belong to an add-on")
 
 def initTranslation():
 	addon = getCodeAddon(frameDist=2)
@@ -450,9 +450,11 @@ def _translatedManifestPaths(lang=None, forBundle=False):
 
 
 class AddonBundle(object):
-	""" Represents the contents of an NVDA addon suitable for distribution.
+	""" Represents the contents of an NVDA add-on suitable for distribution.
 	The bundle is compressed using the zip file format. Manifest information
-	is available without the need for extraction."""
+	is available without the need for extraction.
+	"""
+
 	def __init__(self, bundlePath):
 		""" Constructs an L{AddonBundle} from a filename.
 		@param bundlePath: The path for the bundle file.
@@ -471,7 +473,7 @@ class AddonBundle(object):
 
 	def extract(self, addonPath):
 		""" Extracts the bundle content to the specified path.
-		The addon will be extracted to L{addonPath}
+		The add-on will be extracted to L{addonPath}
 		@param addonPath: Path where to extract contents.
 		@type addonPath: string
 		"""
@@ -486,7 +488,7 @@ class AddonBundle(object):
 
 	@property
 	def manifest(self):
-		""" Gets the manifest for the represented Addon.
+		""" Gets the manifest for the represented Add-on.
 		@rtype: AddonManifest
 		"""
 		return self._manifest
@@ -495,10 +497,10 @@ class AddonBundle(object):
 		return "<AddonBundle at %s>" % self._path
 
 def createAddonBundleFromPath(path, destDir=None):
-	""" Creates a bundle from a directory that contains a a addon manifest file."""
+	""" Creates a bundle from a directory that contains an add-on manifest file."""
 	basedir = os.path.abspath(path)
 	# If  caller did not provide a destination directory name
-	# Put the bundle at the same level of the addon's top directory,
+	# Put the bundle at the same level of the add-on's top directory,
 	# That is, basedir/..
 	if destDir is None:
 		destDir = os.path.dirname(basedir)
@@ -539,7 +541,7 @@ summary = string()
 description = string(default=None)
 # Name of the author or entity that created the add-on
 author = string()
-# Version of the add-on. Should preferably in some standard format such as x.y.z
+# Version of the add-on. Should preferably be in some standard format such as x.y.z
 version = string()
 # URL for more information about the add-on. New versions and such.
 url= string(default=None)
@@ -550,8 +552,8 @@ docFileName = string(default=None)
 
 	def __init__(self, input, translatedInput=None):
 		""" Constructs an L{AddonManifest} instance from manifest string data
-		@param input: data to read the manifest informatinon
-		@type input: a fie-like object.
+		@param input: data to read the manifest information
+		@type input: a file-like object.
 		@param translatedInput: translated manifest input
 		@type translatedInput: file-like object
 		"""

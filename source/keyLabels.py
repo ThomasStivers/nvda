@@ -13,11 +13,11 @@ localizedKeyLabels = {
 	'browserrefresh': _("refresh"),
 	# Translators: This is the name of the stop key found on multimedia keyboards for controlling the web-browser.
 	'browserstop': _("browser stop"),
-	# Translators: This is the name of the back key found on multimedia keyboards to goto the search page of the web-browser.
+	# Translators: This is the name of the search key found on multimedia keyboards to go to the search page of the web-browser.
 	'browsersearch': _("search page"),
 	# Translators: This is the name of the favorites key found on multimedia keyboards to open favorites in the web-browser.
 	'browserfavorites': _("favorites"),
-	# Translators: This is the name of the home key found on multimedia keyboards to goto the home page in the web-browser.
+	# Translators: This is the name of the home key found on multimedia keyboards to go to the home page in the web-browser.
 	'browserhome': _("home page"),
 	# Translators: This is the name of the mute key found on multimedia keyboards to control playback volume.
 	'volumemute': _("mute"),
@@ -27,7 +27,7 @@ localizedKeyLabels = {
 	'volumeup': _("volume up"),
 	# Translators: This is the name of the next track key found on multimedia keyboards to skip to next track in the mediaplayer.
 	'medianexttrack': _("next track"),
-	# Translators: This is the name of the next track key found on multimedia keyboards to skip to next track in the mediaplayer.
+	# Translators: This is the name of the previous track key found on multimedia keyboards to skip to previous track in the mediaplayer.
 	'mediaprevtrack': _("previous track"),
 	# Translators: This is the name of the stop key found on multimedia keyboards to stop the current playing track in the mediaplayer.
 	'mediastop': _("stop"),

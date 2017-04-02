@@ -168,7 +168,7 @@ def setDesktopObject(obj):
 	globalVars.desktopObject=obj
 
 def getReviewPosition():
-	"""Retreaves the current TextInfo instance representing the user's review position. If it is not set, it uses the user's set navigator object and creates a TextInfo from that.
+	"""Retrieves the current TextInfo instance representing the user's review position. If it is not set, it uses the user's set navigator object and creates a TextInfo from that.
 	"""
 	if globalVars.reviewPosition: 
 		return globalVars.reviewPosition

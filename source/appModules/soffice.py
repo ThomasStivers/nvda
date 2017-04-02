@@ -219,7 +219,7 @@ class SymphonyTableCell(IAccessible):
 		return states
 
 class SymphonyParagraph(SymphonyText):
-	"""Removes redundant information that can be retreaved in other ways."""
+	"""Removes redundant information that can be retrieved in other ways."""
 	value=None
 	description=None
 

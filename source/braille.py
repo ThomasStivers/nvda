@@ -1250,7 +1250,7 @@ class BrailleHandler(baseObject.AutoPropertyObject):
 			self.display = None
 			self.displaySize = 0
 			return
-		# See if the user have defined a specific port to connect to
+		# See if the user has defined a specific port to connect to
 		if name not in config.conf["braille"]:
 			# No port was set.
 			config.conf["braille"][name] = {"port" : ""}
@@ -1589,10 +1589,10 @@ def terminate():
 class BrailleDisplayDriver(baseObject.AutoPropertyObject):
 	"""Abstract base braille display driver.
 	Each braille display driver should be a separate Python module in the root brailleDisplayDrivers directory containing a BrailleDisplayDriver class which inherits from this base class.
-	
+
 	At a minimum, drivers must set L{name} and L{description} and override the L{check} method.
 	To display braille, L{numCells} and L{display} must be implemented.
-	
+
 	Drivers should dispatch input such as presses of buttons, wheels or other controls using the L{inputCore} framework.
 	They should subclass L{BrailleDisplayGesture} and execute instances of those gestures using L{inputCore.manager.executeGesture}.
 	These gestures can be mapped in L{gestureMap}.

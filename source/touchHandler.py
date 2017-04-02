@@ -118,7 +118,7 @@ class TouchInputGesture(inputCore.InputGesture):
 	See touchHandler.MultitouchTracker for definitions of the available properties.
 	"""
 
-	counterNames=["single","double","tripple","quodruple"]
+	counterNames=["single","double","tripple","quadruple"]
 
 	pluralActionLabels={
 		# Translators: a touch screen action performed once 
@@ -128,7 +128,7 @@ class TouchInputGesture(inputCore.InputGesture):
 		# Translators: a touch screen action performed 3 times
 		"tripple":_("tripple {action}"),
 		# Translators: a touch screen action performed 4 times
-		"quodruple":_("quadruple {action}"),
+		"quadruple":_("quadruple {action}"),
 	}
 
 	# Translators: a touch screen action using multiple fingers

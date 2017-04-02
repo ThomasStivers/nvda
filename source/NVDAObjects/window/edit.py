@@ -192,7 +192,6 @@ class EditTextInfo(textInfos.offsets.OffsetsTextInfo):
 		point.y=point.y+top
 		return point
 
-
 	def _getOffsetFromPoint(self,x,y):
 		(left,top,width,height)=self.obj.location
 		if self.obj.editAPIVersion>=1:
@@ -388,7 +387,7 @@ class EditTextInfo(textInfos.offsets.OffsetsTextInfo):
 			relativeOffset=offset-lineStart
 			if relativeOffset>=lineTextLen:
 				return offset,offset+1
-			#cariage returns are always treeted as a word by themselves
+			#carage returns are always treeted as a word by themselves
 			if lineText[relativeOffset] in ['\r','\n']:
 				return offset,offset+1
 			#Find the start of the word (possibly moving through space to get to the word first)
@@ -416,7 +415,6 @@ class EditTextInfo(textInfos.offsets.OffsetsTextInfo):
 				return offset,offset+1
 			else:
 				return super(EditTextInfo,self)._getWordOffsets(offset)
-
 
 	def _getLineNumFromOffset(self,offset):
 		if self.obj.editAPIVersion>=1:
@@ -518,7 +516,7 @@ class ITextDocumentTextInfo(textInfos.TextInfo):
 				# Translators: The default color of text when a color has not been set by the author. 
 				formatField['color']=_("default color")
 			elif fgColor&0xff000000:
-				# The color is a palet index (we don't know the palet)
+				# The color is a pallet index (we don't know the pallet)
 				# Translators: The color of text cannot be detected. 
 				formatField['color']=_("Unknown color")
 			else:
@@ -528,7 +526,7 @@ class ITextDocumentTextInfo(textInfos.TextInfo):
 				# Translators: The default background color  when a color has not been set by the author. 
 				formatField['background-color']=_("default color")
 			elif bkColor&0xff000000:
-				# The color is a palet index (we don't know the palet)
+				# The color is a pallet index (we don't know the pallet)
 				# Translators: The background color cannot be detected. 
 				formatField['background-color']=_("Unknown color")
 			else:
@@ -845,7 +843,7 @@ class RichEdit(Edit):
 		try:
 			return self.TextInfo(self,position)
 		except COMError:
-			log.debugWarning("Could not instanciate ITextDocumentTextInfo",exc_info=True)
+			log.debugWarning("Could not instantiate ITextDocumentTextInfo",exc_info=True)
 			self.TextInfo=EditTextInfo
 			return self.TextInfo(self,position)
 
