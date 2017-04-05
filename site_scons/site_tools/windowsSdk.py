@@ -18,7 +18,7 @@ import os
 from SCons.Tool.MSCommon import common
 from SCons.Tool import msvc
 
-#Forecefully disable MSVC detection and path setup
+#Forcefully disable MSVC detection and path setup
 #msvc.msvc_setup_env_once=lambda env: False
 #msvc.msvc_exists=lambda: True
 
