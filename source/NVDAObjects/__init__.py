@@ -190,7 +190,6 @@ class NVDAObject(baseObject.ScriptableObject):
 					return possibleAPIClass.findBestAPIClass(kwargs,relation=relation)
 		return newAPIClass if newAPIClass is not NVDAObject else None
 
-
 	@classmethod
 	def getPossibleAPIClasses(cls,kwargs,relation=None):
 		"""
