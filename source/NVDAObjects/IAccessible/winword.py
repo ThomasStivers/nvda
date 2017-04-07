@@ -82,4 +82,3 @@ class ProtectedDocumentPane(IAccessible):
 			ctypes.windll.user32.AttachThreadInput(curThreadID,document.windowThreadID,False)
 			if not document.WinwordWindowObject.active:
 				document.WinwordWindowObject.activate()
-				

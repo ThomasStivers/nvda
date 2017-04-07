@@ -8,6 +8,7 @@ import winUser
 from . import IAccessible
 
 class Scintilla(IAccessible):
-
+	"""Support for Scintilla controls such as that used in Notepad++."""
+	
 	def _get_name(self):
 		return winUser.getWindowText(self.windowHandle)
