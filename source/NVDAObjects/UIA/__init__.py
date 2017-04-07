@@ -1317,7 +1317,7 @@ class UIColumnHeader(UIA):
 		return " ".join([x for x in (description,itemStatus) if x and not x.isspace()])
 
 class UIItem(UIA):
-	"""UIA list items in an Items View repeate the name as the value"""
+	"""UIA list items in an Items View repeat the name as the value"""
 
 	def _get_positionInfo(self):
 		info={}
