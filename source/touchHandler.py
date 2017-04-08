@@ -23,11 +23,12 @@ import touchTracker
 import gui
 import core
 
-availableTouchModes=['text','object']
+availableTouchModes=['text','object','speech']
 
 touchModeLabels={
 	"text":_("text mode"),
 	"object":_("object mode"),
+	"speech":_("speech mode"),
 }
 
 HWND_MESSAGE=-3

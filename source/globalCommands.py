@@ -2178,12 +2178,16 @@ class GlobalCommands(ScriptableObject):
 
 		# Synth settings ring
 		"kb(desktop):NVDA+control+leftArrow": "previousSynthSetting",
+		"ts(speech):flickleft": "previousSynthSetting",
 		"kb(laptop):NVDA+shift+control+leftArrow": "previousSynthSetting",
 		"kb(desktop):NVDA+control+rightArrow": "nextSynthSetting",
+		"ts(speech):flickright": "nextSynthSetting",
 		"kb(laptop):NVDA+shift+control+rightArrow": "nextSynthSetting",
 		"kb(desktop):NVDA+control+upArrow": "increaseSynthSetting",
+		"ts(speech):flickup": "increaseSynthSetting",
 		"kb(laptop):NVDA+shift+control+upArrow": "increaseSynthSetting",
 		"kb(desktop):NVDA+control+downArrow": "decreaseSynthSetting",
+		"ts(speech):flickdown": "decreaseSynthSetting",
 		"kb(laptop):NVDA+control+shift+downArrow": "decreaseSynthSetting",
 
 		# Braille keyboard
