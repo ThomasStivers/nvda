@@ -28,6 +28,7 @@
 
 == Changes for Developers ==
 - Commandline arguments are now processed with Python's argparser module, rather than optparser. This allows certain options such as -r and -q to be handled exclusively. (#6865)
+- core.callLater now queues the callback to NVDA's main queue after the given delay, rather than waking the core and executing it directly. This stops possible freezes due to the  core accidentally going to sleep after processing a callback, in the middle of  a modal call such as the displaying of a message box. (#6797) 
 - The InputGesture.identifiers property has been changed so that it is no longer normalized. (#6945)
  - Subclasses no longer need to normalize identifiers before returning them from this property.
  - If you want normalized identifiers, there is now an InputGesture.normalizedIdentifiers property which normalizes the identifiers returned by the identifiers property .
