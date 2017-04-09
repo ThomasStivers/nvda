@@ -297,7 +297,7 @@ class VBufStorage_fieldNode_t {
 	virtual std::wstring getDebugInfo() const;
 
 /**
- * Retreave the length of this node.
+ * Retrieve the length of this node.
  */
 	inline int getLength() { return this->length; }
 
@@ -545,7 +545,7 @@ class VBufStorage_buffer_t {
 	virtual VBufStorage_controlFieldNode_t* getControlFieldNodeWithIdentifier(int docHandle, int ID);
 
 /**
- * Retreaves the identifier for the given controlFieldNode.
+ * Retrieves the identifier for the given controlFieldNode.
  * @param node the controlFieldNode who's identifier should be retrieved.
  * @param docHandle a memory address where the docHandle should be placed.
  * @param ID a memory address where the ID should be placed.
@@ -566,7 +566,7 @@ class VBufStorage_buffer_t {
 	virtual VBufStorage_fieldNode_t* findNodeByAttributes(int offset, VBufStorage_findDirection_t  direction, const std::wstring &attribs, const std::wstring &regexp, int *startOffset, int *endOffset);
 
 /**
- * Retreaves the current selection offsets for the buffer
+ * Retrieves the current selection offsets for the buffer
  * @param startOffset memory where the start offset of the selection will be placed
  * @param endOffset memory where the end offset of the selection will be placed
  * @return true if successfull, false otherwize.
@@ -588,7 +588,7 @@ class VBufStorage_buffer_t {
 	virtual int getTextLength() const;
 
 /**
- * Retreaves the text in the buffer between given offsets, optionally containing markup.
+ * Retrieves the text in the buffer between given offsets, optionally containing markup.
  * @param startOffset the offset to start from
  * @param endOffset the offset to end at. Use -1 to mean end of buffer.
  * @param text where to place the found text

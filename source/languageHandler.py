@@ -18,7 +18,7 @@ LOCALE_SLANGDISPLAYNAME=0x6f
 curLang="en"
 
 def localeNameToWindowsLCID(localeName):
-	"""Retreave the Windows locale identifier (LCID) for the given locale name
+	"""Retrieve the Windows locale identifier (LCID) for the given locale name
 	@param localeName: a string of 2letterLanguage_2letterCountry or or just 2letterLanguage
 	@type localeName: string
 	@returns: a Windows LCID

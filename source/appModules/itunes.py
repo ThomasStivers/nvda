@@ -49,7 +49,7 @@ class AppModule(appModuleHandler.AppModule):
 			clsList.insert(0, TopLevelClient)
 
 class ITunesItem(NVDAObjects.IAccessible.IAccessible):
-	"""Retreaves position information encoded in the accDescription"""
+	"""Retrieves position information encoded in the accDescription"""
 
 	hasEncodedAccDescription=True
 	value = None

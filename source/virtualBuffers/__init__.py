@@ -446,7 +446,7 @@ class VirtualBuffer(browseMode.BrowseModeDocumentTreeInterceptor):
 		raise NotImplementedError
 
 	def getIdentifierFromNVDAObject(self,obj):
-		"""Retreaves the virtualBuffer field identifier from an NVDAObject.
+		"""Retrieves the virtualBuffer field identifier from an NVDAObject.
 		@param obj: the NVDAObject to retrieve the field identifier from.
 		@type obj: L{NVDAObject}
 		@returns: a the field identifier as a doc handle and ID paire.

@@ -216,7 +216,7 @@ void CALLBACK winEventProcHook(HWINEVENTHOOK hookID, DWORD eventID, HWND hwnd, l
 	if(AccessibleObjectFromEvent(hwnd,objectID,childID,&pacc,&varChild)!=S_OK) {
 		return;
 	}
-	//Retreave the object states, and if its invisible or offscreen ignore the event.
+	//Retrieve the object states, and if its invisible or offscreen ignore the event.
 	VARIANT varState;
 	pacc->get_accState(varChild,&varState);
 	VariantClear(&varChild);
@@ -226,14 +226,14 @@ void CALLBACK winEventProcHook(HWINEVENTHOOK hookID, DWORD eventID, HWND hwnd, l
 		return;
 	}
 	VariantClear(&varState);
-	//Retreave an IAccessible2 via IServiceProvider if it exists.
+	//Retrieve an IAccessible2 via IServiceProvider if it exists.
 	pacc->QueryInterface(IID_IServiceProvider,(void**)(&pserv));
 	pacc->Release();
 	if(!pserv) return; 
 	pserv->QueryService(IID_IAccessible,IID_IAccessible2,(void**)(&pacc2));
 	pserv->Release();
 	if(!pacc2) return;
-	//Retreave the IAccessible2 attributes, and if the object is not a live region then ignore the event.
+	//Retrieve the IAccessible2 attributes, and if the object is not a live region then ignore the event.
 	map<wstring,wstring> attribsMap;
 	if(!fetchIA2Attributes(pacc2,attribsMap)) {
 		pacc2->Release();
