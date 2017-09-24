@@ -2,7 +2,7 @@
 #A part of NonVisual Desktop Access (NVDA)
 #This file is covered by the GNU General Public License.
 #See the file COPYING for more details.
-#Copyright (C) 2007-2016 NV Access Limited, Babbage B.V.
+#Copyright (C) 2007-2017 NV Access Limited, Babbage B.V. Thomas Stivers
 
 ROLE_UNKNOWN=0
 ROLE_WINDOW=1
