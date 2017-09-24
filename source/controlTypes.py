@@ -691,7 +691,7 @@ def processNegativeStates(role, states, reason, negativeStates):
 	if role in (ROLE_LISTITEM, ROLE_TREEVIEWITEM, ROLE_TABLEROW) and STATE_SELECTABLE in states and (reason != REASON_CHANGE or STATE_FOCUSED in states):
 		speakNegatives.add(STATE_SELECTED)
 	# Restrict "not checked" in a similar way to "not selected".
-	if (role in (ROLE_CHECKBOX, ROLE_RADIOBUTTON, ROLE_CHECKMENUITEM) or STATE_CHECKABLE in states)  and (STATE_HALFCHECKED not in states) and (reason != REASON_CHANGE or STATE_FOCUSED in states):
+	if (role in (ROLE_CHECKBOX, ROLE_RADIOBUTTON, ROLE_CHECKMENUITEM) or STATE_CHECKABLE in states)  and (STATE_HALFCHECKED not in states) or (STATE_HALFCHECKED in states and STATE_CHECKED not in states) and (reason != REASON_CHANGE or STATE_FOCUSED in states):
 		speakNegatives.add(STATE_CHECKED)
 	if role == ROLE_TOGGLEBUTTON:
 		speakNegatives.add(STATE_PRESSED)
