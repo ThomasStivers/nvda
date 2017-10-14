@@ -6,20 +6,20 @@
 """global variables module
 @var foregroundObject: holds the current foreground object
 @type foregroundObject: L{NVDAObjects.NVDAObject}
-  @var focusObject: holds the current focus object
+@var focusObject: holds the current focus object
 @type focusObject: L{NVDAObjects.NVDAObject}
 @var mouseObject: holds the object that is at the position of the mouse pointer
 @type mouseObject: L{NVDAObjects.NVDAObject}
 @var mouseOldX: the last x coordinate of the mouse pointer before its current position
-@type oldMouseX: int
+@type mouseOldX: int
 @var mouseOldY: the last y coordinate of the mouse pointer before its current position
-@type oldMouseY: int
-  @var navigatorObject: holds the current navigator object
+@type mouseOldY: int
+@var navigatorObject: holds the current navigator object
 @type navigatorObject: L{NVDAObjects.NVDAObject}
 @var navigatorTracksFocus: if true, the navigator object will follow the focus as it changes
 @type navigatorTracksFocus: boolean
 """
- 
+
 startTime=0
 desktopObject=None
 foregroundObject=None
