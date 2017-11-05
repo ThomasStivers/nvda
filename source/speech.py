@@ -645,13 +645,10 @@ def _suppressSpeakTypedCharacters(number):
 
 #: The character to use when masking characters in protected fields.
 PROTECTED_CHAR = "*"
-<<<<<<< HEAD
-=======
 #: The first character which is not a Unicode control character.
 #: This is used to test whether a character should be spoken as a typed character;
 #: i.e. it should have a visual or spatial representation.
 FIRST_NONCONTROL_CHAR = u" "
->>>>>>> master
 def speakTypedCharacters(ch):
 	global curWordChars
 	typingIsProtected=api.isTypingProtected()
@@ -686,11 +683,7 @@ def speakTypedCharacters(ch):
 			_suppressSpeakTypedCharactersTime = None
 	else:
 		suppress = False
-<<<<<<< HEAD
-	if not suppress and config.conf["keyboard"]["speakTypedCharacters"] and ord(ch)>=32:
-=======
 	if not suppress and config.conf["keyboard"]["speakTypedCharacters"] and ch >= FIRST_NONCONTROL_CHAR:
->>>>>>> master
 		speakSpelling(realChar)
 
 class SpeakTextInfoState(object):
