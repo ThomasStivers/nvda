@@ -4,7 +4,7 @@
 #Copyright (C) 2017 NV Access Limited
 
 """appModule for Microsoft Skype for business. """
- 
+
 import ui
 from NVDAObjects.UIA import UIA
 import appModuleHandler

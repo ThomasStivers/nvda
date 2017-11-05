@@ -228,7 +228,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		@rtype: boolean
 		"""
 		raise NotImplementedError
- 
+
 
 	def findOverlayClasses(self, clsList):
 		"""Chooses overlay classes which should be added to this object's class structure after the object has been initially instantiated.
@@ -302,7 +302,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		@rtype: boolean
 		"""
 		return True
- 
+
 	def __eq__(self,other):
 		"""Compares the objects' memory addresses, their type, and uses L{NVDAObject._isEqual} to see if they are equal.
 		"""
@@ -311,7 +311,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		if type(self) is not type(other):
 			return False
 		return self._isEqual(other)
- 
+
 	def __ne__(self,other):
 		"""The opposite to L{NVDAObject.__eq__}
 		"""
@@ -427,7 +427,7 @@ class NVDAObject(baseObject.ScriptableObject):
 		@rtype: basestring
 		"""
 		raise NotImplementedError
- 
+
 	def doAction(self,index=None):
 		"""Performs an action supported by this object.
 		If index is not given then the default action will be used if it exists.

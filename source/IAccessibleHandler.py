@@ -50,7 +50,7 @@ class OrderedWinEventLimiter(object):
 
 	Only allow a max of L{maxFocusItems}, if more are added then the oldest focus event is removed to make room.
 	Only allow one event for one specific object at a time, though push it further forward in time if a duplicate tries to get added. This is true for both generic and focus events.
- 	"""
+	"""
 
 	def __init__(self,maxFocusItems=4):
 		"""

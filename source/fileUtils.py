@@ -14,8 +14,8 @@ MOVEFILE_REPLACE_EXISTING = 1
 
 @contextmanager
 def FaultTolerantFile(name):
-	'''Used to write out files in a more fault tolerant way. A temporary file is used, and replaces the 
-	file `name' when the context manager scope ends and the the context manager __exit__ is called. This
+	'''Used to write out files in a more fault tolerant way. A temporary file is used, and replaces the
+	file `name' when the context manager scope ends and the context manager __exit__ is called. This
 	means writing out the complete file can be performed with less concern of corrupting the original file
 	if the process is interrupted by windows shutting down.
 	`name` must be unicode.
@@ -24,7 +24,7 @@ def FaultTolerantFile(name):
 		with FaultTolerantFile("myFile.txt") as f:
 			f.write("This is a test")
 
-	This creates a temporary file, and the writes actually happen on this temp file. At the end of the 
+	This creates a temporary file, and the writes actually happen on this temp file. At the end of the
 	`with` block, when `f` goes out of context the temporary file is closed and, this temporary file replaces "myFile.txt"
 	'''
 	if not isinstance(name, unicode):

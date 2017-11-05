@@ -128,69 +128,69 @@ xlPatternRectangularGradient = 4001
 
 backgroundPatternLabels={
 		# See https://msdn.microsoft.com/en-us/library/microsoft.office.interop.excel.xlpattern.aspx
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Excel controls the pattern.
 		xlPatternAutomatic:_("automatic"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Checkerboard
 		xlPatternChecker:_("diagonal crosshatch"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Criss-cross lines
 		xlPatternCrissCross:_("thin diagonal crosshatch"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Dark diagonal lines running from the upper left to the lower right
 		xlPatternDown:_("reverse diagonal stripe"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# 12.5% gray
 		# xgettext:no-python-format
 		xlPatternGray16:_("12.5% gray"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# 25% gray
 		# xgettext:no-python-format
 		xlPatternGray25:_("25% gray"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# xgettext:no-python-format
 		# 50% gray
 		xlPatternGray50:_("50% gray"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# 75% gray
 		# xgettext:no-python-format
 		xlPatternGray75:_("75% gray"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# 6.25% gray
 		# xgettext:no-python-format
 		xlPatternGray8:_("6.25% gray"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Grid
 		xlPatternGrid:_("thin horizontal crosshatch"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Dark horizontal lines
 		xlPatternHorizontal:_("horizontal stripe"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Light diagonal lines running from the upper left to the lower right
 		xlPatternLightDown:_("thin reverse diagonal stripe"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Light horizontal lines
 		xlPatternLightHorizontal:_("thin horizontal stripe"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Light diagonal lines running from the lower left to the upper right
 		xlPatternLightUp:_("thin diagonal stripe"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Light vertical bars
 		xlPatternLightVertical:_("thin vertical stripe"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# No pattern
 		xlPatternNone:_("none"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# 75% dark moire
 		xlPatternSemiGray75:_("thick diagonal crosshatch"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Solid color
 		xlPatternSolid:_("solid"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Dark diagonal lines running from the lower left to the upper right
 		xlPatternUp:_("diagonal stripe"),
-		# Translators: A type of background pattern in Microsoft Excel. 
+		# Translators: A type of background pattern in Microsoft Excel.
 		# Dark vertical bars
 		xlPatternVertical:_("vertical stripe"),
 		# Translators: A type of background pattern in Microsoft Excel.
@@ -208,7 +208,7 @@ class ExcelQuickNavItem(browseMode.QuickNavItem):
 
 	def __init__( self , nodeType , document , itemObject , itemCollection ):
 		self.excelItemObject = itemObject
-		self.excelItemCollection = itemCollection 
+		self.excelItemCollection = itemCollection
 		super( ExcelQuickNavItem ,self).__init__( nodeType , document )
 
 	def activate(self):
@@ -226,11 +226,11 @@ class ExcelChartQuickNavItem(ExcelQuickNavItem):
 		self.chartIndex = chartObject.Index
 		if chartObject.Chart.HasTitle:
 
-			self.label = chartObject.Chart.ChartTitle.Text + " " + chartObject.TopLeftCell.address(False,False,1,False) + "-" + chartObject.BottomRightCell.address(False,False,1,False) 
+			self.label = chartObject.Chart.ChartTitle.Text + " " + chartObject.TopLeftCell.address(False,False,1,False) + "-" + chartObject.BottomRightCell.address(False,False,1,False)
 
 		else:
 
-			self.label = chartObject.Name + " " + chartObject.TopLeftCell.address(False,False,1,False) + "-" + chartObject.BottomRightCell.address(False,False,1,False) 
+			self.label = chartObject.Name + " " + chartObject.TopLeftCell.address(False,False,1,False) + "-" + chartObject.BottomRightCell.address(False,False,1,False)
 
 		super( ExcelChartQuickNavItem ,self).__init__( nodeType , document , chartObject , chartCollection )
 
@@ -241,12 +241,10 @@ class ExcelChartQuickNavItem(ExcelQuickNavItem):
 		try:
 			self.excelItemObject.Activate()
 
-			# After activate(), though the chart object is selected, 
-
-			# pressing arrow keys moves the object, rather than 
-
-			# let use go inside for sub-objects. Somehow 
-		# calling an COM function on a different object fixes that !
+			# After activate(), though the chart object is selected,
+			# pressing arrow keys moves the object, rather than
+			# let us go inside for sub-objects. Somehow
+			# calling a COM function on a different object fixes that !
 
 			log.debugWarning( self.excelItemCollection.Count )
 
@@ -320,7 +318,7 @@ class ExcelQuicknavIterator(object):
 	def __init__(self, itemType , document , direction , includeCurrent):
 		"""
 		See L{QuickNavItemIterator} for itemType, document and direction definitions.
-		@ param includeCurrent: if true then any item at the initial position will be also emitted rather than just further ones. 
+		@ param includeCurrent: if true then any item at the initial position will be also emitted rather than just further ones.
 		"""
 		self.document=document
 		self.itemType=itemType
@@ -360,12 +358,12 @@ class ExcelQuicknavIterator(object):
 			yield item
 
 class ChartExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
-	quickNavItemClass=ExcelChartQuickNavItem#: the QuickNavItem class that should be instantiated and emitted. 
+	quickNavItemClass=ExcelChartQuickNavItem#: the QuickNavItem class that should be instantiated and emitted.
 	def collectionFromWorksheet( self , worksheetObject ):
-		return worksheetObject.ChartObjects() 
+		return worksheetObject.ChartObjects()
 
 class CommentExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
-	quickNavItemClass=ExcelCommentQuickNavItem#: the QuickNavItem class that should be instantiated and emitted. 
+	quickNavItemClass=ExcelCommentQuickNavItem#: the QuickNavItem class that should be instantiated and emitted.
 	def collectionFromWorksheet( self , worksheetObject ):
 		try:
 			return  worksheetObject.cells.SpecialCells( xlCellTypeComments )
@@ -376,7 +374,7 @@ class CommentExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
 		return item is not None and item.comment is not None
 
 class FormulaExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
-	quickNavItemClass=ExcelFormulaQuickNavItem#: the QuickNavItem class that should be instantiated and emitted. 
+	quickNavItemClass=ExcelFormulaQuickNavItem#: the QuickNavItem class that should be instantiated and emitted.
 	def collectionFromWorksheet( self , worksheetObject ):
 		try:
 			return  worksheetObject.cells.SpecialCells( xlCellTypeFormulas )
@@ -420,7 +418,7 @@ class SheetsExcelCollectionQuicknavIterator(ExcelQuicknavIterator):
 	"""
 	Allows iterating over an MS excel Sheets collection emitting L{QuickNavItem} object.
 	"""
-	quickNavItemClass=ExcelSheetQuickNavItem#: the QuickNavItem class that should be instantiated and emitted. 
+	quickNavItemClass=ExcelSheetQuickNavItem#: the QuickNavItem class that should be instantiated and emitted.
 	def collectionFromWorksheet( self , worksheetObject ):
 		try:
 			return worksheetObject.Application.ActiveWorkbook.sheets
@@ -795,7 +793,7 @@ class ExcelWorksheet(ExcelBase):
 		return columns[columns.count].column+1
 
 	def forgetHeaderCell(self,cell,isColumnHeader=False,isRowHeader=False):
-		if not isColumnHeader and not isRowHeader: 
+		if not isColumnHeader and not isRowHeader:
 			return False
 		info=self.headerCellTracker.getHeaderCellInfoAt(cell.rowNumber,cell.columnNumber)
 		if not info:
@@ -822,9 +820,9 @@ class ExcelWorksheet(ExcelBase):
 		for info in self.headerCellTracker.iterPossibleHeaderCellInfosFor(cell.rowNumber,cell.columnNumber,columnHeader=columnHeader):
 			textList=[]
 			if columnHeader:
-				for headerRowNumber in xrange(info.rowNumber,info.rowNumber+info.rowSpan): 
+				for headerRowNumber in xrange(info.rowNumber,info.rowNumber+info.rowSpan):
 					headerCell=self.excelWorksheetObject.cells(headerRowNumber,cell.columnNumber)
-					# The header could be  merged cells. 
+					# The header could be  merged cells.
 					# if so, fetch text from the first in the merge as that always contains the content
 					try:
 						headerCell=headerCell.mergeArea.item(1)
@@ -832,9 +830,9 @@ class ExcelWorksheet(ExcelBase):
 						pass
 					textList.append(headerCell.text)
 			else:
-				for headerColumnNumber in xrange(info.columnNumber,info.columnNumber+info.colSpan): 
+				for headerColumnNumber in xrange(info.columnNumber,info.columnNumber+info.colSpan):
 					headerCell=self.excelWorksheetObject.cells(cell.rowNumber,headerColumnNumber)
-					# The header could be  merged cells. 
+					# The header could be  merged cells.
 					# if so, fetch text from the first in the merge as that always contains the content
 					try:
 						headerCell=headerCell.mergeArea.item(1)
@@ -1215,7 +1213,7 @@ class ExcelCell(ExcelBase):
 		# #6570: You cannot type into protected cells.
 		# Apart from speaking characters being miss-leading, Office 2016 protected view doubles characters as well.
 		# Therefore for any character from space upwards (not control characters)  on protected cells, play the default sound rather than speaking the character
-		if ch>=" " and controlTypes.STATE_UNLOCKED not in self.states and controlTypes.STATE_PROTECTED in self.parent.states: 
+		if ch>=" " and controlTypes.STATE_UNLOCKED not in self.states and controlTypes.STATE_PROTECTED in self.parent.states:
 			winsound.PlaySound("Default",winsound.SND_ALIAS|winsound.SND_NOWAIT|winsound.SND_ASYNC)
 			return
 		super(ExcelCell,self).event_typedCharacter(ch)
@@ -1394,10 +1392,10 @@ class ExcelCell(ExcelBase):
 
 	def script_editComment(self,gesture):
 		commentObj=self.excelCellObject.comment
-		d = wx.TextEntryDialog(gui.mainFrame, 
-			# Translators: Dialog text for 
+		d = wx.TextEntryDialog(gui.mainFrame,
+			# Translators: Dialog text for editing an Excel comment
 			_("Editing comment for cell {address}").format(address=self.cellCoordsText),
-			# Translators: Title of a dialog edit an Excel comment 
+			# Translators: Title of a dialog for editing an Excel comment
 			_("Comment"),
 			defaultValue=commentObj.text() if commentObj else u"",
 			style=wx.TE_MULTILINE|wx.OK|wx.CANCEL)
@@ -1732,7 +1730,7 @@ class ExcelFormControlQuickNavItem(ExcelQuickNavItem):
 	def label(self):
 		if self._label: return self._label
 		alternativeText=self.excelItemObject.AlternativeText
-		if alternativeText: 
+		if alternativeText:
 			self._label=alternativeText+" "+self.excelItemObject.Name+" " + self.excelItemObject.TopLeftCell.address(False,False,1,False) + "-" + self.excelItemObject.BottomRightCell.address(False,False,1,False)
 		else:
 			self._label=self.excelItemObject.Name + " " + self.excelItemObject.TopLeftCell.address(False,False,1,False) + "-" + self.excelItemObject.BottomRightCell.address(False,False,1,False)
@@ -1900,7 +1898,7 @@ class ExcelFormControlListBox(ExcelFormControl):
 		if self.isMultiSelectable:
 			try:
 				lb=self.excelOLEFormatObject
-				lb.Selected[self.selectedItemIndex] =not lb.Selected[self.selectedItemIndex] 
+				lb.Selected[self.selectedItemIndex] =not lb.Selected[self.selectedItemIndex]
 			except:
 				return
 			child=self.getChildAtIndex(self.selectedItemIndex-1)

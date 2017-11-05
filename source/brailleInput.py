@@ -318,7 +318,7 @@ class BrailleInputHandler(object):
 	def sendChars(self, chars):
 		inputs = []
 		for ch in chars:
-			for direction in (0,winUser.KEYEVENTF_KEYUP): 
+			for direction in (0,winUser.KEYEVENTF_KEYUP):
 				input = winUser.Input()
 				input.type = winUser.INPUT_KEYBOARD
 				input.ii.ki = winUser.KeyBdInput()

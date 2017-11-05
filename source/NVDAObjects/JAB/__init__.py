@@ -354,7 +354,7 @@ class JAB(Window):
 			else:
 				self._parent=super(JAB,self).parent
 		return self._parent
- 
+
 	def _get_next(self):
 		parent=self.parent
 		if not isinstance(parent,JAB):

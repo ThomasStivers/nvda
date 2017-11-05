@@ -38,7 +38,7 @@ class SynthDriver(SynthDriver):
 
 	def _get_lastIndex(self):
 		return _audiologic.LastIndex
- 
+
 	def cancel(self):
 		_audiologic.TtsStop()
 

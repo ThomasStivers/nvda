@@ -39,7 +39,7 @@ def doAnyUpgrades(synth):
 	# We know the transform required for Espeak, so try regardless of
 	# the synth currently set.
 	_doEspeakDictUpgrade()
-	
+
 	if synth.name == "espeak":
 		# nothing more we can do until a different synth is used
 		return
@@ -55,12 +55,12 @@ def _doSynthVoiceDictBackupAndMove(synthName, oldFileNameToNewFileNameList=None)
 	dir copy it to the synthvoice dir using the new name if it we have one.
 	"""
 	import shutil
-	
+
 	if not os.path.isdir(voiceDictsPath):
 		os.makedirs(voiceDictsPath)
 	if not os.path.isdir(voiceDictsBackupPath):
 		os.makedirs(voiceDictsBackupPath)
-	
+
 	newDictPath = os.path.join(voiceDictsPath,synthName)
 	needsUpgrade = not os.path.isdir(newDictPath)
 	if needsUpgrade:
@@ -70,8 +70,8 @@ def _doSynthVoiceDictBackupAndMove(synthName, oldFileNameToNewFileNameList=None)
 		# occuring more than once.
 		os.makedirs(newDictPath)
 
-		# look for files that need to be upgraded  in the old voice 
-		# dicts diectory
+		# look for files that need to be upgraded  in the old voice
+		# dicts directory
 		voiceDictGlob=os.path.join(
 				speechDictsPath,
 				r"{synthName}*".format(synthName=synthName)
@@ -83,10 +83,10 @@ def _doSynthVoiceDictBackupAndMove(synthName, oldFileNameToNewFileNameList=None)
 			# files will be copied here before we modify them so as to avoid
 			# any data loss.
 			shutil.copy(actualPath, voiceDictsBackupPath)
-			
+
 			actualBasename = os.path.basename(actualPath)
 			log.debug("basename: %s" % actualBasename)
-			
+
 			renameTo = actualBasename
 			if oldFileNameToNewFileNameList:
 				for oldFname, newFname in oldFileNameToNewFileNameList:
@@ -112,7 +112,7 @@ def _doEspeakDictUpgrade():
 					)
 	_doSynthVoiceDictBackupAndMove(synthName, list(getNextVoice()))
 
-# the ID maped to old and new names for voices in espeak-ng
+# the ID mapped to old and new names for voices in espeak-ng
 # "old" used in NVDA 2017.3 "new" in NVDA 2017.4
 espeakNameChanges = {
 	"af": [u"afrikaans", u"Afrikaans"],

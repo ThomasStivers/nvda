@@ -47,7 +47,7 @@ class GUITHREADINFO(Structure):
 		('cbSize',DWORD),
 		('flags',DWORD),
 		('hwndActive',HWND),
- 		('hwndFocus',HWND),
+		('hwndFocus',HWND),
 		('hwndCapture',HWND),
 		('hwndMenuOwner',HWND),
 		('hwndMoveSize',HWND),
@@ -313,7 +313,7 @@ def getSystemScreenReaderFlag():
 
 def LOBYTE(word):
 	return word&0xFF
- 
+
 def HIBYTE(word):
 	return word>>8
 
@@ -542,33 +542,33 @@ def getSystemStickyKeys():
 # START SENDINPUT TYPE DECLARATIONS
 PUL = POINTER(c_ulong)
 class KeyBdInput(Structure):
-    _fields_ = [("wVk", c_ushort),
-             ("wScan", c_ushort),
-             ("dwFlags", c_ulong),
-             ("time", c_ulong),
-             ("dwExtraInfo", PUL)]
+	_fields_ = [("wVk", c_ushort),
+		("wScan", c_ushort),
+		("dwFlags", c_ulong),
+		("time", c_ulong),
+		("dwExtraInfo", PUL)]
 
 class HardwareInput(Structure):
-    _fields_ = [("uMsg", c_ulong),
-             ("wParamL", c_short),
-             ("wParamH", c_ushort)]
+	_fields_ = [("uMsg", c_ulong),
+		("wParamL", c_short),
+		("wParamH", c_ushort)]
 
 class MouseInput(Structure):
-    _fields_ = [("dx", c_long),
-             ("dy", c_long),
-             ("mouseData", c_ulong),
-             ("dwFlags", c_ulong),
-             ("time",c_ulong),
-             ("dwExtraInfo", PUL)]
+	_fields_ = [("dx", c_long),
+		("dy", c_long),
+		("mouseData", c_ulong),
+		("dwFlags", c_ulong),
+		("time",c_ulong),
+		("dwExtraInfo", PUL)]
 
 class Input_I(Union):
-    _fields_ = [("ki", KeyBdInput),
-              ("mi", MouseInput),
-              ("hi", HardwareInput)]
+	_fields_ = [("ki", KeyBdInput),
+		("mi", MouseInput),
+		("hi", HardwareInput)]
 
 class Input(Structure):
-    _fields_ = [("type", c_ulong),
-             ("ii", Input_I)]
+	_fields_ = [("type", c_ulong),
+		("ii", Input_I)]
 
 INPUT_KEYBOARD = 1
 KEYEVENTF_KEYUP = 0x0002

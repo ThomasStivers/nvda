@@ -135,7 +135,7 @@ class SynthDriver(SynthDriver):
 
 	def _get_voice(self):
 		return self.tts.voice.Id
- 
+
 	def _get_lastIndex(self):
 		bookmark=self.tts.status.LastBookmark
 		if bookmark!="" and bookmark is not None:

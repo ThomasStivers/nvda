@@ -43,7 +43,7 @@ class WindowProcessHandleContainer(object):
 	@ivar processHandle: The actual handle which can be used in any win32 calls that need it.
 	@type processHandle: int
 	"""
- 
+
 	def __init__(self,windowHandle):
 		"""
 		@param windowHandle: the handle of the window whose process handle should be retrieved.

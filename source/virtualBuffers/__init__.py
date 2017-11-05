@@ -283,7 +283,7 @@ class VirtualBufferTextInfo(browseMode.BrowseModeDocumentTextInfo,textInfos.offs
 		lineEnd=ctypes.c_int()
 		NVDAHelper.localLib.VBuf_getLineOffsets(self.obj.VBufHandle,offset,config.conf["virtualBuffers"]["maxLineLength"],config.conf["virtualBuffers"]["useScreenLayout"],ctypes.byref(lineStart),ctypes.byref(lineEnd))
 		return lineStart.value,lineEnd.value
- 
+
 	def _getParagraphOffsets(self,offset):
 		lineStart=ctypes.c_int()
 		lineEnd=ctypes.c_int()

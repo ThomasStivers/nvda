@@ -116,7 +116,7 @@ def getCharacterDescription(locale,character):
 	if not desc and not locale.startswith('en'):
 		desc=getCharacterDescription('en',character)
 	return desc
- 
+
 # Speech symbol levels
 SYMLVL_NONE = 0
 SYMLVL_SOME = 100

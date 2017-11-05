@@ -69,7 +69,7 @@ LF_FACESIZE=32
 #structures
 
 class PointLStruct(ctypes.Structure):
- 	_fields_=[
+	_fields_=[
 		('x',ctypes.c_long),
 		('y',ctypes.c_long),
 	]
