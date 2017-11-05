@@ -12,3 +12,5 @@ class Scintilla(IAccessible):
 	
 	def _get_name(self):
 		return winUser.getWindowText(self.windowHandle)
+
+	shouldAcceptShowHideCaretEvent=False

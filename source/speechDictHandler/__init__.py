@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 #speechDictHandler.py
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (C) 2007-2016 NV Access Limited, Peter Vágner, Aleksey Sadovoy, Aaron Cannon, Derek Riemer
+#Copyright (C) 2006-2017 NVDA Contributors <http://www.nvda-project.org/>
 #This file is covered by the GNU General Public License.
 #See the file COPYING for more details.
 
@@ -12,10 +12,11 @@ import globalVars
 from logHandler import log
 import api
 import config
+from . import dictFormatUpgrade
+from .speechDictVars import speechDictsPath
 
 dictionaries = {}
 dictTypes = ("temp", "voice", "default", "builtin") # ordered by their priority E.G. voice specific speech dictionary is processed before the default
-speechDictsPath=os.path.join(globalVars.appArgs.configPath, "speechDicts")
 
 # Types of speech dictionary entries:
 ENTRY_TYPE_ANYWHERE = 0 # String can match anywhere
@@ -136,9 +137,16 @@ def loadVoiceDict(synth):
 	"""Loads appropriate dictionary for the given synthesizer.
 It handles case when the synthesizer doesn't support voice setting.
 """
+	try:
+		dictFormatUpgrade.doAnyUpgrades(synth)
+	except:
+		log.error("error trying to upgrade dictionaries", exc_info=True)
+		pass
 	if synth.isSupported("voice"):
-		voiceName = synth.availableVoices[synth.voice].name
-		fileName=r"%s\%s-%s.dic"%(speechDictsPath,synth.name,api.filterFileName(voiceName))
+		voice = synth.availableVoices[synth.voice].name
+		baseName = dictFormatUpgrade.createVoiceDictFileName(synth.name, voice)
 	else:
-		fileName=r"%s\%s.dic"%(speechDictsPath,synth.name)
+		baseName=r"{synth}.dic".format(synth=synth.name)
+	voiceDictsPath = dictFormatUpgrade.voiceDictsPath
+	fileName= os.path.join(voiceDictsPath, synth.name, baseName)
 	dictionaries["voice"].load(fileName)
