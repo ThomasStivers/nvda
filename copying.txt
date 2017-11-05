@@ -1849,10 +1849,10 @@ This copy of Python includes a copy of openssl, which is licensed under the foll
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  * 
- * The license and distribution terms for any publically available version or
+ * The licence and distribution terms for any publically available version or
  * derivative of this code cannot be changed.  i.e. this code cannot simply be
- * copied and put under another distribution license
- * [including the GNU Public License.]
+ * copied and put under another distribution licence
+ * [including the GNU Public Licence.]
  */
 
 
@@ -2042,22 +2042,22 @@ This applies to wxPython, available from http://www.wxpython.org/
   Copyright (c) 1998-2005 Julian Smart, Robert Roebling et al
 
   Everyone is permitted to copy and distribute verbatim copies
-  of this license document, but changing it is not allowed.
+  of this licence document, but changing it is not allowed.
 
-                       WXWINDOWS LIBRARY LICENSE
+                       WXWINDOWS LIBRARY LICENCE
      TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
   
   This library is free software; you can redistribute it and/or modify it
-  under the terms of the GNU Library General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or (at
+  under the terms of the GNU Library General Public Licence as published by
+  the Free Software Foundation; either version 2 of the Licence, or (at
   your option) any later version.
   
   This library is distributed in the hope that it will be useful, but
   WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library
-  General Public License for more details.
+  General Public Licence for more details.
 
-  You should have received a copy of the GNU Library General Public License
+  You should have received a copy of the GNU Library General Public Licence
   along with this software, usually in a file named COPYING.LIB.  If not,
   write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
   Boston, MA 02111-1307 USA.
@@ -2066,18 +2066,18 @@ This applies to wxPython, available from http://www.wxpython.org/
 
   1. As a special exception, the copyright holders of this library give
   permission for additional uses of the text contained in this release of
-  the library as licensed under the wxWindows Library License, applying
-  either version 3.1 of the License, or (at your option) any later version of
-  the License as published by the copyright holders of version
-  3.1 of the License document.
+  the library as licenced under the wxWindows Library Licence, applying
+  either version 3.1 of the Licence, or (at your option) any later version of
+  the Licence as published by the copyright holders of version
+  3.1 of the Licence document.
 
   2. The exception is that you may use, copy, link, modify and distribute
   under your own terms, binary object code versions of works based
   on the Library.
 
   3. If you copy code from files distributed under the terms of the GNU
-  General Public License or the GNU Library General Public License into a
-  copy of this library, as this license permits, the exception does not
+  General Public Licence or the GNU Library General Public Licence into a
+  copy of this library, as this licence permits, the exception does not
   apply to the code that you add in this way.  To avoid misleading anyone as
   to the status of such modified files, you must delete this exception
   notice from such code and/or adjust the licensing conditions notice
