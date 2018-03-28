@@ -447,11 +447,15 @@ class UIAGridRow(RowWithFakeNavigation,UIA):
 		childrenCacheRequest.addProperty(UIAHandler.UIA_NamePropertyId)
 		childrenCacheRequest.addProperty(UIAHandler.UIA_TableItemColumnHeaderItemsPropertyId)
 		childrenCacheRequest.TreeScope=UIAHandler.TreeScope_Children
+		# #7949: A cache request without tree filter causes a NULL COM pointer access error
+		# when fetching the length of the cached children array.
+		childrenCacheRequest.treeFilter=UIAHandler.handler.clientObject.CreatePropertyCondition(UIAHandler.UIA_IsContentElementPropertyId, True)
 		cachedChildren=self.UIAElement.buildUpdatedCache(childrenCacheRequest).getCachedChildren()
 		for index in xrange(cachedChildren.length):
 			e=cachedChildren.getElement(index)
 			isFlag = e.cachedClassName=="FlagField"
 			if isFlag:
+<<<<<<< HEAD
 				try:
 					flagIcon=selection.flagIcon
 				except COMError:
@@ -459,6 +463,18 @@ class UIAGridRow(RowWithFakeNavigation,UIA):
 				if not flagIcon:
 					# This message has no flag.
 					# Filter the flag field, as it provides redundant information.
+=======
+				flagIcon=0
+				if selection:
+					try:
+						flagIcon=selection.flagIcon
+					except COMError:
+						pass
+				if not flagIcon:
+					# This message has no flag.
+					# Filter the flag field, as it provides redundant information.
+					# Ignore flags if the object model couldn't be accessed.
+>>>>>>> 5cb6f4479a11b59444e7bb2c34125ebf57e42f91
 					continue
 			name=e.cachedName
 			columnHeaderTextList=[]

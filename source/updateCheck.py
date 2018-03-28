@@ -214,7 +214,7 @@ class AutoUpdateChecker(UpdateChecker):
 	AUTO = True
 
 	def __init__(self):
-		self._checkTimer = gui.NonReEntrantTimer(self.check)
+		self._checkTimer = wx.PyTimer(self.check)
 		if config.conf["update"]["startupNotification"] and isPendingUpdate():
 			secsTillNext = 0 # Display the update message instantly
 		else:
@@ -353,7 +353,11 @@ class UpdateAskInstallDialog(wx.Dialog):
 		mainSizer.Add(sHelper.sizer, border=guiHelper.BORDER_FOR_DIALOGS, flag=wx.ALL)
 		self.Sizer = mainSizer
 		mainSizer.Fit(self)
+<<<<<<< HEAD
 		self.Center(wx.BOTH | wx.CENTER)
+=======
+		self.Center(wx.BOTH | wx.CENTER_ON_SCREEN)
+>>>>>>> 5cb6f4479a11b59444e7bb2c34125ebf57e42f91
 
 	def onInstallButton(self, evt):
 		executeUpdate(self.destPath)

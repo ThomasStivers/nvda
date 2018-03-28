@@ -208,7 +208,7 @@ class MainFrame(wx.Frame):
 
 	def evaluateUpdatePendingUpdateMenuItemCommand(self):
 		try:
-			self.sysTrayIcon.menu.Remove(self.sysTrayIcon.installPendingUpdateMenuItem)
+			self.sysTrayIcon.menu.RemoveItem(self.sysTrayIcon.installPendingUpdateMenuItem)
 		except:
 			log.debug("Error while removing  pending update menu item", exc_info=True)
 			pass
